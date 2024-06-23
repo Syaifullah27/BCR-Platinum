@@ -1,0 +1,4 @@
+.blur {
+    filter: blur(6px);
+    /* Sesuaikan dengan tingkat blur yang diinginkan */
+}

@@ -1,0 +1,66 @@
+.why-us-wrapper {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+.why-us-container {
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 110px;
+    gap: 20px;
+}
+
+.why-us-container p {
+    font-size: 16px;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
+.whyUs-card-wrapper {
+    display: flex;
+    gap: 30px;
+}
+
+.whyUs-card {
+    width: 300px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 10px;
+    border: 2px solid #DDDDDD;
+}
+
+.whyUs-card img{
+    width: 40px;
+}
+
+.whyUs-card p{
+    line-height: 24px;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .whyUs-card-wrapper {
+        flex-direction: column;
+    }
+
+    .why-us-container {
+        margin-left: 0;
+        align-items: center;
+        margin-bottom: 50px;
+        padding: 20px;
+    }
+
+    .whyUs-card {
+        width:  100%;
+        
+    }
+}

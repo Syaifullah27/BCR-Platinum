@@ -1,0 +1,179 @@
+.search-cars-wrapper {
+    position: relative;
+    bottom: 50px;
+    padding-bottom: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #3C3C3C;
+    position: relative;
+    z-index: 9999;
+}
+
+.search-cars-container {
+    max-width: 1150px;
+    margin:  0 auto;
+    display: flex;
+    gap: 50px;
+    background-color: #FFFFFF;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.185);
+    border-radius: 10px;
+    height: 120px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-cars {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-input {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-direction: column;
+}
+
+.search-input input {
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #D0D0D0;
+    outline: none;
+}
+.search-input input:not(:placeholder-shown) {
+    border: 1px solid #222222;
+}
+
+.search-input input:focus {
+    border: 1px solid #35B0A7;
+}
+
+.btn {
+    margin-top: 25px;
+    width: 140px;
+    height: 36px;
+    background-color: #5CB85F;
+    border: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 8px, 12px, 8px, 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 500; 
+}
+
+
+.eror {
+    border: 1px solid red;
+}
+
+
+
+.hide-arrow {
+    border: 1px solid #222222;
+    outline: none;
+    color: black;
+    appearance: none; /* Menghilangkan default arrow */
+    -webkit-appearance: none; /* Untuk browser Webkit (Safari, Chrome, dll.) */
+    -moz-appearance: none; /* Untuk browser Mozilla Firefox */
+    background-image: none; /* Menghilangkan background image (biasanya panah dropdown) */
+    /* Anda dapat menyesuaikan styling lebih lanjut sesuai kebutuhan */
+}
+
+.eror {
+    border: 1px solid red;
+}
+
+select {
+    border: 1px solid #D0D0D0;
+    width: 225px;
+    padding: 10px;
+    color: #3c3c3cc7;
+    border-radius: 5px;
+}
+
+select:focus {
+    border: 1px solid #5CB85F;
+}
+
+.focused::before{
+    content: "";
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+    height: 152%;
+    width: 100%;
+    /* border: 1px solid red; */
+    background-color:rgba(0, 0, 0, 0.61);
+}
+
+.overlay::before {
+    content: "";
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+    height: 252%;
+    width: 100%;
+    /* border: 1px solid red; */
+    background-color:rgba(0, 0, 0, 0.61);
+}
+
+@media screen and (max-width: 768px) {
+.focused::before{
+    height: 300%;
+}
+
+    .search-cars-wrapper  {
+        /* top: 100px; */
+        padding-left: 20px;
+        padding-bottom: 0;
+        /* border: 1px solid rgb(4, 0, 255); */
+        
+    }
+
+    .search-cars-container {
+        padding: 0;
+        flex-direction: column;
+        height: 100%;
+        /* border: 1px solid red; */
+        border-radius: 0px 0px 0px 10px;
+    }
+    
+    .search-cars {
+        border-radius: 0px;
+        position: relative;
+        z-index: 1;
+        /* border: 1px solid black; */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.13);
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-radius: 0px 0px 0px 10px;
+        width: 100%;
+        background-color: #FFFFFF;
+        flex-direction: column;
+        /* border: 1px solid red; */
+    }
+
+    .search-input {
+        padding: 0 20px;
+        width: 100%;
+    }
+
+    .search-input input {
+        width: 100%;
+    }
+
+    .search-input select {
+        width: 100%;
+    }
+}

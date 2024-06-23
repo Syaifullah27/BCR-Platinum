@@ -1,0 +1,97 @@
+/* Efek blur saat menu hamburger dibuka */
+.blur {
+    filter: blur(6px);
+    /* Sesuaikan dengan tingkat blur yang diinginkan */
+}
+
+/* Tampilan menu hamburger saat terbuka */
+nav {
+    display: none;
+}
+
+nav.open {
+    display: block;
+    /* Tambahkan gaya untuk menu terbuka di sini */
+}
+
+
+
+
+.main-section-wrapper {
+    padding-top: 120px;
+    background-color: #F1F3FF;
+    display: flex;
+    justify-content: end;
+    height: 580px;
+}
+
+.main-section-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1175px;
+    overflow: hidden;
+}
+
+.left-main-section {
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.left-main-section .title {
+    font-size: 30px;
+    color:#000000;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    line-height: 54px;
+}
+
+.left-main-section .desc {
+    width: 490px;
+    color:#000000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+
+.right-main-section {
+    display: flex;
+    align-items: end;
+    padding-top: 30px;
+}
+
+.right-main-section img{
+    padding-top: 30px;
+    width: 665px;
+}
+
+
+/* ukuran mobile */
+@media screen and (max-width: 768px) {
+    .main-section-wrapper{
+        padding-top: 45px;
+        height: 100%;
+    }
+
+    .left-main-section .title {
+        width: 90%;
+    }
+
+    .left-main-section .desc {
+        width: 90%;
+    }
+    .main-section-container {
+        flex-direction: column;
+        align-items: center;
+        margin: 0px 0px 0px 0px;
+        padding-left: 20px;
+    }
+
+    .right-main-section img {
+        width: 100%;
+    }
+}

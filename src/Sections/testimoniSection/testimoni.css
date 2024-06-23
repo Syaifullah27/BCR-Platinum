@@ -1,0 +1,252 @@
+.slick-slide > div {
+    margin: 0 10px;
+}
+
+.slick-arrow.slick-prev {
+    display: none;
+    /* border: 1px solid red; */
+    position: relative;
+    left: 10px;
+    cursor: default;
+}
+
+.slick-arrow.slick-next{
+    display: none;
+    /* border: 1px solid red; */
+    position: relative;
+    right: 20px;
+    cursor:default;
+}
+
+.arrow-btn {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 20px;
+}
+
+.btn-prev, .btn-next {
+    background-color: rgb(255, 255, 255);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid #C4C4C4;
+    transition: .2s all ease;
+    color: black;
+}
+
+.btn-next:hover {
+    color: whitesmoke;
+    background-color: #5CB85F;
+}
+.btn-prev:hover {
+    color: whitesmoke;
+    background-color: #5CB85F;
+}
+
+
+.testimoni-container {
+    /* border: 1px solid red; */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    gap: 10px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimoni-container p {
+    font-size: 16px;
+    font-weight: 600;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.testimoni-card {
+    display: flex;
+    box-shadow: 0px 0px 2px #C4C4C4;
+    background-color:#F1F3FF; ;
+    border-radius: 10px;
+    padding: 20px;
+    gap: 35px;
+    justify-content: center;
+    align-items: center;
+}
+
+.testimoni-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.card-list {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.card-list p {
+    text-align: start;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.card-list h4 {
+    color: #17181dc5;
+}
+
+
+.card-list img {
+    margin-top: 10px;
+    width: 90px;
+    height: 19px;
+    border-radius: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .testimoni-wrapper {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.testimoni-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimoni-container p {
+    font-size: 16px;
+    font-weight: 600;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+.testimoni-card-container {
+    padding-top: 20px;
+    display: flex;
+    gap: 40px;
+}
+
+.testimoni-card {
+    background-color: #F1F3FF;
+    display: flex;
+    gap: 30px;
+    height: 330px;
+    padding: 30px;
+    width: 600px;
+    align-items: center;
+    box-shadow: 0px 0px 2px #C4C4C4;
+    border-radius: 10px;
+}
+
+.testimoni-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.testimoni-card .text img {
+    width: 100px;
+    height: 23px;
+    border-radius: 0px;
+}
+
+.testimoni-card .text {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.testimoni-card .text p {
+    text-align: start;
+    line-height: 20px;
+}
+
+.testimoni-card .text h3 {
+    font-weight: 400;
+}
+
+
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 50px;
+}
+
+.prev-btn,
+.next-btn {
+
+    border: 1px solid #C4C4C4;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: 600;
+    width: 45px;
+    height: 45px;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+    background-color: #5CB85F;
+    color: white;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .testimoni-card-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px
+    }
+
+    .testimoni-card {
+        max-width: max-content;
+        width: 100%;
+        height: 250px;
+    }
+
+    .testimoni-card img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .testimoni-card .text img {
+        width: 80px;
+        height: 18px;
+    }
+
+    
+.button-container {
+    padding-top: 20px;
+}
+
+    .testimoni-card .text p {
+        font-size: 13px;
+    }
+} */
