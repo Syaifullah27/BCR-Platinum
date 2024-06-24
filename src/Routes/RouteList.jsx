@@ -6,6 +6,10 @@ import ResultCars from "../Pages/ResultCarsPage/ResultCars";
 import RentalsPage from "../Pages/RentalCarsPage/rentalsCars";
 import LoginPage from "../Auth/Login";
 import RegisterPage from "../Auth/Register";
+import TestPage from "../Pages/Test";
+import PaymentPage from "../Pages/PaymentPage/Index";
+import ProtectedPage from "./ProtectedPage";
+
 
 export const RouteList = createBrowserRouter( [
     {
@@ -31,6 +35,18 @@ export const RouteList = createBrowserRouter( [
     {
         path: "/register",
         element: <RegisterPage />
+    },
+    {
+        path: "/payment",
+        element: (
+            <ProtectedPage>
+                <PaymentPage />
+            </ProtectedPage>
+        )
+    },
+    {
+        path: "/test",
+        element : <TestPage/>
     },
     {
         path: "*",

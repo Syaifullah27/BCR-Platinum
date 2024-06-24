@@ -26,7 +26,7 @@ const Navbar = ({isOpen, toggleMenu, inMenu, logoBtn, boxShadow, }) => {
                 boxShadow: "0px 0px 16px rgba(0, 0, 0, 0.1)"}}
                 className="navbar-wrapper">
                     <nav className="navbar">
-                        <h1 className='text-3xl font-semibold bg-[#0D28A6] text-[#f5f5f5] py-2 px-5'>Logo</h1>
+                        <h1 className={`text-3xl font-semibold bg-[#0D28A6] text-[#f5f5f5] py-2 px-5 ${isOpen ? 'blur' : ''}`}>Logo</h1>
                         {/* <img src={`./images/EsyehaCarRentals.png` } className={`${isOpen ? 'blur' : ''} logo`}/> */}
                         <div className='backToMenu'>
                             {
@@ -48,7 +48,7 @@ const Navbar = ({isOpen, toggleMenu, inMenu, logoBtn, boxShadow, }) => {
                                 <li><a href="#faq">FAQ</a></li>
                                 <button 
                                 onClick={handleLogout}
-                                className='bg-[#5CB85F] text-[#fff] px-4 py-[5px] rounded-lg hover:bg-[#2E8B57]'>
+                                className='bg-[#5CB85F] text-[#fff] px-4 py-[5px] rounded-lg hover:bg-[#51a154]'>
                                     {token ? "Logout" : "Login"}
                                     </button>
                                 </> : 
@@ -59,7 +59,7 @@ const Navbar = ({isOpen, toggleMenu, inMenu, logoBtn, boxShadow, }) => {
                                     <Link to="/"><li>FAQ</li></Link>
                                     <button 
                                 onClick={handleLogout}
-                                className='bg-[#5CB85F] text-[#fff] px-4 py-[5px] rounded-lg hover:bg-[#2E8B57]'>
+                                className='bg-[#5CB85F] text-[#fff] px-4 py-[5px] rounded-lg hover:bg-[#51a154]'>
                                     {token ? "Logout" : "Login"}
                                     </button>
                                 </>
@@ -70,7 +70,8 @@ const Navbar = ({isOpen, toggleMenu, inMenu, logoBtn, boxShadow, }) => {
                 <div
                 className="navbar-wrapper">
                     <nav className="navbar">
-                        <img src='./images/EsyehaCarRentals.png' className={`${isOpen ? 'blur' : ''} logo`}/>
+                        <h1 className={`text-3xl font-semibold bg-[#0D28A6] text-[#f5f5f5] py-2 px-5 ${isOpen ? 'blur' : ''}`}>Logo</h1>
+                        {/* <img src='./images/EsyehaCarRentals.png' className={`${isOpen ? 'blur' : ''} logo`}/> */}
                         <div className='backToMenu'>
                             {
                                 logoBtn === true ? <a href="#home">back</a> : <Link to="/">back</Link>
@@ -91,7 +92,7 @@ const Navbar = ({isOpen, toggleMenu, inMenu, logoBtn, boxShadow, }) => {
                                 <li><a href="#faq">FAQ</a></li>
                                 <button 
                                 onClick={handleLogout}
-                                className='bg-[#5CB85F] text-[#fff] px-4 py-[5px] rounded-lg hover:bg-[#2E8B57]'>
+                                className='bg-[#5CB85F] text-[#fff] px-4 py-[5px] rounded-lg hover:bg-[#51a154]'>
                                     {token ? "Logout" : "Login"}
                                     </button>
                                 </> : 
@@ -102,7 +103,7 @@ const Navbar = ({isOpen, toggleMenu, inMenu, logoBtn, boxShadow, }) => {
                                     <Link to="/"><li>FAQ</li></Link>
                                     <button 
                                 onClick={handleLogout}
-                                className='bg-[#5CB85F] text-[#fff] px-4 py-[5px] rounded-lg hover:bg-[#2E8B57]'>
+                                className='bg-[#5CB85F] text-[#fff] px-4 py-[5px] rounded-lg hover:bg-[#51a154]'>
                                     {token ? "Logout" : "Login"}
                                     </button>
                                 </>

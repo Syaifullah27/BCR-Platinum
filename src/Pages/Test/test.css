@@ -1,0 +1,29 @@
+
+button.rs-btn-primary  {
+    width: 375px ;
+    background-color:#35B0A7;
+}
+
+button.rs-btn-primary:hover  {
+    background-color: #329e97;
+}
+
+@media screen and (max-width: 768px) {
+    button.rs-btn-primary  {
+        width: 365px;
+    }
+    
+}
+
+@media screen and (max-width: 480px) {
+    button.rs-btn-primary  {
+        width: 270px;
+    }
+    
+}
+
+
+
+
+
+

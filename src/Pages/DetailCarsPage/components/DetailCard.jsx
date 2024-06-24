@@ -5,9 +5,11 @@ import { useEffect } from "react"
 import { exclude, garansi, include, } from "../../../Utils/DumyData"
 import "./detailCard.css"
 import { formatKategoryCars, formatRupiah } from "../../../Utils/FormatDatas"
+import { DateRangePicker } from "rsuite"
+import { useNavigate } from "react-router-dom"
 // eslint-disable-next-line react/prop-types
 const DetailCard = ({isOpen, id}) => {
-    
+    const navigate = useNavigate()
     const [detailCars, setDetailCars] = useState({})
 
     const getDetailCars = () => {
@@ -24,6 +26,20 @@ const DetailCard = ({isOpen, id}) => {
     useEffect(() => {
         getDetailCars()
     }, [])
+
+
+    const [tanggal, setTangal] = useState(null)
+
+    const handleChange = (value) => {
+        setTangal(value)
+    }
+    console.log(tanggal);
+
+
+    const handleSubmit = () => {
+        navigate('/payment', {state: {id: id, date: tanggal}})
+    }
+
 
     return (
         <div className={`${isOpen ? 'blur' : ''}`}>
@@ -72,9 +88,23 @@ const DetailCard = ({isOpen, id}) => {
                                     <img src="./../images/jmlOrg.png" alt="" />
                                     <p>{formatKategoryCars(detailCars.category) ? formatKategoryCars(detailCars.category) : "-"}</p>
                                 </div>
+                                <div className="flex flex-col gap-2 pt-4 ">
+                                    <label className="text-sm  text-[#8A8A8A]">Tentukan lama sewa mobil (max 7 hari)</label>
+                                    <DateRangePicker
+                                        className='w-full placeholder:text-sm '
+                                        placeholder="Pilih tanggal mulai dan tanggal akhir sewa"
+                                        showOneCalendar ranges={[]} onChange={handleChange} />
+                                </div>
                                 <div className="total">
                                     <p className="font-semibold text-xl">Total</p>
                                     <h3 className="font-semibold text-lg"> {formatRupiah(detailCars.price)}</h3>
+                                </div>
+                                <div className="flex  w-full  pt-2">
+                                    <button 
+                                    onClick={handleSubmit}
+                                    disabled={tanggal === null}
+                                    className={`w-full font-semibold   text-white p-2 rounded-md  ${tanggal === null ? 'bg-[#5cb85f4d]' : 'bg-[#5CB85F]'}
+                                    ${tanggal === null ? '' : 'hover:bg-[#51a154]'}`}>lanjutkan Pembayaran</button>
                                 </div>
                             </div>
                         </div>
