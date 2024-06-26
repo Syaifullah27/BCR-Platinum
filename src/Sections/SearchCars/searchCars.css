@@ -109,7 +109,7 @@ select:focus {
     right: 0;
     left: 0;
     position: absolute;
-    height: 152%;
+    height: 158%;
     width: 100%;
     /* border: 1px solid red; */
     background-color:rgba(0, 0, 0, 0.61);

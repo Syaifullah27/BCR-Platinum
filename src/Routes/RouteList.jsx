@@ -37,7 +37,7 @@ export const RouteList = createBrowserRouter( [
         element: <RegisterPage />
     },
     {
-        path: "/payment",
+        path: "/payment/:id",
         element: (
             <ProtectedPage>
                 <PaymentPage />
