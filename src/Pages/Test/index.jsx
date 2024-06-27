@@ -1,7 +1,9 @@
-import { useState } from 'react';
-import { Button, DateRangePicker } from 'rsuite';
 import 'rsuite/dist/rsuite-no-reset.min.css';
 import './test.css'
+// import { Calendar } from 'react-date-range';
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
+import InputDateRange from './dateRange';
 // import { addDays } from 'rsuite/esm/internals/utils/date';
 
 const TestPage = () => {
@@ -29,25 +31,23 @@ const TestPage = () => {
     //     }
     // ];
 
-    const [tanggal, setTangal] = useState([])
+    
 
-    const handleChange = (value) => {
-        setTangal(value)
-    }
+    // const selectionRange = {
+    //     startDate: new Date(),
+    //     endDate: new Date(),
+    //     key: 'selection',
+    // }
 
-    console.log(tanggal);
+    // console.log(tanggal);
 
     return (
 
         <div className="border-2 border-red-600 p-10 flex gap-10">
-            <Button>Hello World</Button>
-            <div className='w-[400px]'>
-                <DateRangePicker
-                    className='w-full'
-                    placeholder="Pilih tanggal mulai dan tanggal akhir sewa"
-                    showOneCalendar ranges={[]} onChange={handleChange} />
-            </div>
-            {/* <DateRangePicker showOneCalendar ranges={[]} format="MM/dd/yyyy HH:mm" /> */}
+
+<InputDateRange />
+
+
         </div>
     )
 }

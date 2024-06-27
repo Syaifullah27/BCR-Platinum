@@ -3,7 +3,7 @@ import Navbar from "../../Components/Navbar"
 import Footer from "../../Components/Footer"
 import { useContext } from "react"
 import { DetailCar } from "../../Store/dataDetailCar"
-import { TglSewa } from "../../Store/tanggalSewa"
+// import { TglSewa } from "../../Store/tanggalSewa"
 import { useNavigate } from "react-router-dom"
 import "./payment.css"
 import Faq from "react-faq-component";
@@ -55,28 +55,28 @@ const PaymentPage = () => {
                     <div className="flex flex-col gap-2">
                         <h1 className="font-semibold">Harga</h1>
                         <ul className="flex justify-between items-center">
-                            <li className="text-sm ml-1">Sewa Mobil Rp.500.000 x 7 hari</li>
-                            <li className="font-semibold">{formatRupiah(priceCar)}</li>
+                            <li className="text-[13px] ml-1">{`Sewa Mobil ${formatRupiah(priceCar)} x 7 hari`}</li>
+                            <li className="font-semibold text-sm">{formatRupiah(priceCar)}</li>
                         </ul>
                     </div>
                     <div className="flex flex-col gap-2 pt-2">
                         <h1 className="font-semibold">Biaya Lainnya</h1>
                         <ul className="flex justify-between items-center">
-                            <li className="text-sm ml-1">Pajak</li>
-                            <li className=" text-[#25ac25]">Termasuk</li>
+                            <li className="text-[13px] ml-1">Pajak</li>
+                            <li className=" text-[#25ac25] text-sm">Termasuk</li>
                         </ul>
                         <ul className="flex justify-between items-center">
-                            <li className="text-sm ml-1">Biaya makan supir</li>
-                            <li className=" text-[#25ac25]">Termasuk</li>
+                            <li className="text-[13px] ml-1">Biaya makan supir</li>
+                            <li className=" text-[#25ac25] text-sm">Termasuk</li>
                         </ul>
                     </div>
                     <div className="flex flex-col gap-2 pt-2">
                         <h1 className="font-semibold">Belum Termasuk</h1>
                         <ul className="flex justify-between items-center">
-                            <li className="text-sm ml-1">Bensin</li>
+                            <li className="text-[13px] ml-1">Bensin</li>
                         </ul>
                         <ul className="flex justify-between items-center">
-                            <li className="text-sm ml-1">Tol dan parkir</li>
+                            <li className="text-[13px] ml-1">Tol dan parkir</li>
                         </ul>
                     </div>
                 </div>
@@ -104,7 +104,8 @@ const PaymentPage = () => {
 
 
 
-
+    const tglAwal = localStorage.getItem('startDate')
+    const tglAkhir = localStorage.getItem('endDate')
 
 
 
@@ -161,11 +162,11 @@ const PaymentPage = () => {
                     </div>
                     <div className="flex flex-col gap-2">
                         <h2 className="font-medium">Tanggal mulai sewa</h2>
-                        <p className="text-[#8A8A8A] text-sm"> {detailCars.name}</p>
+                        <p className="text-[#8A8A8A] text-sm"> {tglAwal}</p>
                     </div>
                     <div className="flex flex-col gap-2">
                         <h2 className="font-medium">Tanggal akhir sewa</h2>
-                        <p className="text-[#8A8A8A] text-sm">{detailCars.name}</p>
+                        <p className="text-[#8A8A8A] text-sm">{tglAkhir}</p>
                     </div>
                 </div>
             </div>

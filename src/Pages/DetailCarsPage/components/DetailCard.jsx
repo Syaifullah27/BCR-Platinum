@@ -5,17 +5,19 @@ import { useEffect } from "react"
 import { exclude, garansi, include, } from "../../../Utils/DumyData"
 import "./detailCard.css"
 import { formatKategoryCars, formatRupiah } from "../../../Utils/FormatDatas"
-import { DateRangePicker } from "rsuite"
+// import { DateRangePicker } from "rsuite"
 import { useNavigate } from "react-router-dom"
 import { useContext } from "react"
 import { DetailCar } from "../../../Store/dataDetailCar"
-import { TglSewa } from "../../../Store/tanggalSewa"
+// import { TglSewa } from "../../../Store/tanggalSewa"
+import InputDateRange from "../../Test/dateRange"
+// import { useState } from "react"
 // eslint-disable-next-line react/prop-types
 const DetailCard = ({isOpen, id}) => {
     const navigate = useNavigate()
     // const [detailCars, setDetailCars] = useState({})
     const { detailCars, setDetailCars } = useContext(DetailCar)
-    const { tglSewa, setTglSewa } = useContext(TglSewa)
+    // const { tglSewa, setTglSewa } = useContext(TglSewa)
 
     const getDetailCars = () => {
         axios.get(`https://api-car-rental.binaracademy.org/customer/car/${id}`)
@@ -36,13 +38,11 @@ const DetailCard = ({isOpen, id}) => {
     }, [])
 
 
-    // const [tanggal, setTangal] = useState(null)
+    const tglAwal = localStorage.getItem('startDate')
+    const tglAkhir = localStorage.getItem('endDate')
+    console.log(tglAwal, tglAkhir);
 
-    const handleChange = (date) => {
-        setTglSewa(date)
-        
-    }
-    console.log( tglSewa)
+
     
 
 
@@ -100,13 +100,7 @@ const DetailCard = ({isOpen, id}) => {
                                 </div>
                                 <div className="flex flex-col gap-2 pt-4 ">
                                     <label className="text-sm  text-[#8A8A8A]">Tentukan lama sewa mobil (max 7 hari)</label>
-                                    <DateRangePicker
-                                        value={tglSewa}
-                                        // disabledDate={date => date <= new Date()}
-                                        className='w-full placeholder:text-sm '
-                                        placeholder="Pilih tanggal mulai dan tanggal akhir sewa"
-                                        showOneCalendar ranges={[]} 
-                                        onChange={handleChange} />
+                                    <InputDateRange />
                                 </div>
                                 <div className="total">
                                     <p className="font-semibold text-xl">Total</p>
@@ -115,9 +109,7 @@ const DetailCard = ({isOpen, id}) => {
                                 <div className="flex  w-full  pt-2">
                                     <button 
                                     onClick={handleSubmit}
-                                    disabled={tglSewa === null}
-                                    className={`w-full font-semibold   text-white p-2 rounded-md  ${tglSewa === null ? 'bg-[#5cb85f4d]' : 'bg-[#5CB85F]'}
-                                    ${tglSewa === null ? '' : 'hover:bg-[#51a154]'}`}>lanjutkan Pembayaran</button>
+                                    className={`w-full font-semibold  bg-[#5CB85F] text-white p-2 rounded-md `}>lanjutkan Pembayaran</button>
                                 </div>
                             </div>
                         </div>
