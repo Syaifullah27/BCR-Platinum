@@ -1,6 +1,8 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { formatDate } from "date-fns";
 import { useEffect, useRef, useState } from "react";
 import { DateRange } from "react-date-range";
+import { faCalendar } from "@fortawesome/free-regular-svg-icons";
 
 const InputDateRange = () => {
     const [range, setRange] = useState([
@@ -42,17 +44,24 @@ const InputDateRange = () => {
         
     };
 
-    return (
-        <div className=' flex flex-col justify-center items-center w-[400px]'>
-                
-                <input
-                    placeholder='Select date'
-                    type="text"
-                    readOnly
-                    value={`${formatDate(range[0].startDate, 'MM/dd/yyyy')} - ${formatDate(range[0].endDate, 'MM/dd/yyyy')}`}
-                    className='border-2 rounded-lg border-gray-300 w-full p-2 outline-none'
-                    onClick={() => setOpen(open => !open)} />
 
+
+
+
+    return (
+        <div className=' flex flex-col justify-center items-center w-full'>
+                
+                <span className="relative w-full">
+                    <input
+                            placeholder='Select date'
+                            type="text"
+                            readOnly
+                            defaultValue={"Select date"}
+                            value={`${formatDate(range[0].startDate, 'MM/dd/yyyy')}  -  ${formatDate(range[0].endDate, 'MM/dd/yyyy')}`}
+                            className='border-2 font-medium rounded-lg border-gray-300 w-full p-2 outline-none focus:border-blue-500'
+                            onClick={() => setOpen(open => !open)} />
+                            <FontAwesomeIcon icon={faCalendar} className="absolute top-3 right-3 text-gray-500"/>
+                </span>
                 {open &&
                     <div ref={ref}>
                         <DateRange

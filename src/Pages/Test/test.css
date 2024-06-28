@@ -1,29 +1,85 @@
-
-button.rs-btn-primary  {
-    width: 375px ;
-    background-color:#35B0A7;
+button.rs-btn-primary {
+    width: 375px;
+    background-color: #35B0A7;
 }
 
-button.rs-btn-primary:hover  {
+button.rs-btn-primary:hover {
     background-color: #329e97;
 }
 
 @media screen and (max-width: 768px) {
-    button.rs-btn-primary  {
+    button.rs-btn-primary {
         width: 365px;
     }
-    
+
 }
 
 @media screen and (max-width: 480px) {
-    button.rs-btn-primary  {
+    button.rs-btn-primary {
         width: 270px;
     }
-    
+
 }
 
 
 
 
+.countdown {
+    border-radius: 5px;
+    padding: 4px;
+    background-color: #FA2C5A;
+    font-size: 18px;
+    color: #f1f1f1;
+    font-family: 'Courier New', Courier, monospace;
+}
 
 
+.reset-time {
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-value {
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px 0 0 5px;
+    width: 300px;
+}
+
+.copy-button {
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+
+.copy-icon {
+    width: 20px;
+    height: 20px;
+}

@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom"
 import "./payment.css"
 import Faq from "react-faq-component";
 import { formatRupiah } from "../../Utils/FormatDatas"
+// import { Link } from "react-router-dom"
 
 
 const PaymentPage = () => {
@@ -41,6 +42,7 @@ const PaymentPage = () => {
     }
 
     const [selectedBank, setSelectedBank] = useState('');
+    localStorage.setItem('namaBank', selectedBank)
 
     const handleBankChange = (event) => {
         setSelectedBank(event.target.value);
@@ -109,7 +111,19 @@ const PaymentPage = () => {
 
 
 
+    const [randomNumber, setRandomNumber] = useState('86754231');
 
+    const generateRandomNumber = () => {
+        const number = Math.floor(10000000 + Math.random() * 90000000).toString();
+        setRandomNumber(number);
+    }
+    localStorage.setItem('orderId', randomNumber)
+    
+    const handleNavigate = () => {
+        navigate('/bayar')
+    }
+
+    // console.log(randomNumber);
 
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -184,6 +198,7 @@ const PaymentPage = () => {
                                     type="radio"
                                     name="bank"
                                     value="BCA"
+                                    onClick={generateRandomNumber}
                                     checked={selectedBank === 'BCA'}
                                     onChange={handleBankChange} />
                             </div>
@@ -199,6 +214,7 @@ const PaymentPage = () => {
                                     type="radio"
                                     name="bank"
                                     value="BNI"
+                                    onClick={generateRandomNumber}
                                     checked={selectedBank === 'BNI'}
                                     onChange={handleBankChange}/>
                                     {selectedBank === 'BNI' && (
@@ -214,6 +230,7 @@ const PaymentPage = () => {
                                     type="radio"
                                     name="bank"
                                     value="Mandiri"
+                                    onClick={generateRandomNumber}
                                     checked={selectedBank === 'Mandiri'}
                                     onChange={handleBankChange}/>
                                     {selectedBank === 'Mandiri' && (
@@ -243,9 +260,10 @@ const PaymentPage = () => {
                                 <h1>Total </h1>
                                 <p>{formatRupiah(priceCar)}</p>
                             </div>
-                            <button 
-                            disabled={selectedBank === ''}
-                            className={`w-full font-semibold   text-white p-2 rounded-md bg-[#5CB85F] ${selectedBank === '' ? 'bg-[#5cb85f4d]' : 'bg-[#5CB85F]'}`}>Bayar</button>
+                                <button 
+                                onClick={handleNavigate}
+                                disabled={selectedBank === ''}
+                                className={`w-full font-semibold   text-white p-2 rounded-md bg-[#5CB85F] ${selectedBank === '' ? 'bg-[#5cb85f4d]' : 'bg-[#5CB85F]'}`}>Bayar</button>
                         </div>
                     </div>
                 </div>

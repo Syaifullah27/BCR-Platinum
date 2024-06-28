@@ -9,6 +9,8 @@ import RegisterPage from "../Auth/Register";
 import TestPage from "../Pages/Test";
 import PaymentPage from "../Pages/PaymentPage/Index";
 import ProtectedPage from "./ProtectedPage";
+import BayarPage from "../Pages/BayarPage";
+import TiketPage from "../Pages/TiketPage/Index";
 
 
 export const RouteList = createBrowserRouter( [
@@ -37,12 +39,20 @@ export const RouteList = createBrowserRouter( [
         element: <RegisterPage />
     },
     {
-        path: "/payment/:id",
+        path: "/pilih-metode/:id",
         element: (
             <ProtectedPage>
                 <PaymentPage />
             </ProtectedPage>
         )
+    },
+    {
+        path: "/bayar",
+        element: <BayarPage/>
+    },
+    {
+        path: "/tiket",
+        element : <TiketPage/>
     },
     {
         path: "/test",

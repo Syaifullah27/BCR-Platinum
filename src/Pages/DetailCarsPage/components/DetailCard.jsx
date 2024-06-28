@@ -47,7 +47,7 @@ const DetailCard = ({isOpen, id}) => {
 
 
     const handleSubmit = () => {
-        navigate(`/payment/:${detailCars.id}`)
+        navigate(`/pilih-metode/:${detailCars.id}`)
     }
 
 
