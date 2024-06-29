@@ -43,11 +43,14 @@ const DetailCard = ({isOpen, id}) => {
     console.log(tglAwal, tglAkhir);
 
 
-    
+    const handleToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
 
     const handleSubmit = () => {
         navigate(`/pilih-metode/:${detailCars.id}`)
+        handleToTop()
     }
 
 

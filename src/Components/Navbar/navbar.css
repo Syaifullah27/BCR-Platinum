@@ -170,7 +170,7 @@
 
     .navbar ul::after{
         font-family: Arial, Helvetica, sans-serif;
-        content: "BCS";
+        content: "BCR";
         position: absolute;
         top: 25px;
         left: 19px;
@@ -180,7 +180,8 @@
     }
 
     .navbar ul:hover {
-        color: rgb(185, 147, 20);
+        color: rgb(208, 209, 211);
+        text-shadow: 0px 0px 1px rgb(255, 255, 255);
     }
 
     .navbar ul li {

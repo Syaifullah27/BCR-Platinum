@@ -7,6 +7,8 @@ import InputDateRange from './dateRange';
 import HitungMundur from './hitungMundur';
 import InputCopyValue from './inputCopyValue';
 import HitungMundur10mnt from './HitungMundur10mnt';
+import PDFfile from './reactPDF';
+import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
 // import { addDays } from 'rsuite/esm/internals/utils/date';
 
 const TestPage = () => {
@@ -34,7 +36,7 @@ const TestPage = () => {
     //     }
     // ];
 
-    
+
 
     // const selectionRange = {
     //     startDate: new Date(),
@@ -48,13 +50,15 @@ const TestPage = () => {
 
         <div className="border-2 border-red-600 p-10 flex flex-col gap-10">
 
-<InputDateRange />
+            <InputDateRange />
 
-<HitungMundur />
+            <HitungMundur />
 
-<InputCopyValue />
+            <InputCopyValue />
 
-<HitungMundur10mnt />
+            <HitungMundur10mnt />
+
+            <MyPDF />
         </div>
     )
 }
@@ -62,3 +66,30 @@ const TestPage = () => {
 export default TestPage
 
 
+
+
+
+export const MyPDF = () => {
+
+    return (
+        <div className='p-5 flex flex-col justify-center items-center mb-6'>
+            <div className='shadow-xl rounded-lg border p-10 flex flex-col gap-5 max-sm:px-5'>
+                <div className='flex justify-between '>
+                    <div className='flex flex-col gap-2'>
+                        <h1 className='text-xl font-medium'>Invoice</h1>
+                        {/* <p className='text-[#8A8A8A] italic text-sm'>*no invoice</p> */}
+                    </div>
+                    <PDFDownloadLink
+                        fileName='invoice.pdf'
+                        document={<PDFfile />}><button 
+                        className='border-2 border-blue-800 flex justify-center items-center gap-2 text-blue-800 font-medium px-4 py-2 max-sm:px-2'><img src="../../images/download.png" alt="donwload" />Unduh </button>
+                    </PDFDownloadLink>
+                </div>
+
+                <PDFViewer width={557} height={162} showToolbar={false} className='max-sm:w-[300px]'>
+                    <PDFfile />
+                </PDFViewer>
+            </div>
+        </div>
+    )
+}
