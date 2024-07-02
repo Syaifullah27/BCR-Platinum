@@ -9,6 +9,7 @@ import { formatKategoryCars, formatRupiah } from "../../../Utils/FormatDatas"
 import { useNavigate } from "react-router-dom"
 import { useContext } from "react"
 import { DetailCar } from "../../../Store/dataDetailCar"
+// import { DataFaktur } from "../../../Store/Faktur"
 // import { TglSewa } from "../../../Store/tanggalSewa"
 import InputDateRange from "../../Test/dateRange"
 // import { useState } from "react"
@@ -17,6 +18,7 @@ const DetailCard = ({isOpen, id}) => {
     const navigate = useNavigate()
     // const [detailCars, setDetailCars] = useState({})
     const { detailCars, setDetailCars } = useContext(DetailCar)
+    // const { nameCar ,setNameCar} = useContext(DataFaktur)
     // const { tglSewa, setTglSewa } = useContext(TglSewa)
 
     const getDetailCars = () => {
@@ -53,11 +55,16 @@ const DetailCard = ({isOpen, id}) => {
         handleToTop()
     }
 
+const handleBack = () => {
+    navigate(-1)
+}
 
     return (
         <div className={`${isOpen ? 'blur' : ''}`}>
             <div className="detail-card-wrapper">
                 <div className="detail-card-container">
+                <img className="font-semibold absolute z-50 top-28 left-40" src="../../images/panahKiri.png" 
+            onClick={handleBack}/>
                     <ResultCarsTable isOpen={isOpen} btn={false} canModify={false} detailName={detailCars.name} detailCapacity={detailCars.category} detailPrice={formatRupiah(detailCars.price)} detailStatus={detailCars.status}/>
                     <div className="detail-card">
                         <div className="left-detail">

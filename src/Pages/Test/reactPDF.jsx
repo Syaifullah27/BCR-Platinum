@@ -41,12 +41,15 @@ const priceMobil = localStorage.getItem('priceCar')
 const awalSewa = localStorage.getItem('startDate')
 const akhirSewa = localStorage.getItem('endDate')
 
+console.log(namaMobil);
+
 const PDFfile = () => {
+
 
     return (
         <Document>
             <Page style={styles.body}>
-                <Text style={styles.header}fixed>Pembayaran Berhasil</Text>
+                <Text style={styles.header} fixed>Pembayaran Berhasil</Text>
                 <Text style={styles.text}>Pesananmu :</Text>
                 <Text style={styles.detail}>Mobil : {namaMobil}</Text>
                 <Text style={styles.detail}>Total : {formatRupiah(priceMobil)}</Text>

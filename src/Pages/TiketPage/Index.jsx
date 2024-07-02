@@ -18,9 +18,11 @@ const TiketPage = () => {
 
     const handleBack = () => {
         navigate(-1)
+
         // localStorage.removeItem('endTime')
     }
     const orderId = localStorage.getItem('orderId')
+
 
     return (
         <div>
@@ -56,13 +58,13 @@ const TiketPage = () => {
             </div>
 
             <div className={`max-w-[970px] m-auto mt-10 flex flex-col justify-center items-center gap-4 ${isMenuOpen ? 'blur' : ''}`}>
-                <img src="../../images/success.png" alt="" width={60} className="max-sm:w-12"/>
+                <img src="../../images/success.png" alt="" width={60} className="max-sm:w-12" />
                 <h1 className="text-2xl font-semibold max-sm:text-xl">Pembayaran Berhasil</h1>
                 <p className=" text-[#8A8A8A] max-sm:text-sm">Tunjukan invoice ini ke petugas BCR dititk temu.</p>
                 <MyPDF />
             </div>
 
-            <Footer isOpen={isMenuOpen} isFocused={isFocused}/>
+            <Footer isOpen={isMenuOpen} isFocused={isFocused} />
 
 
         </div>

@@ -130,10 +130,17 @@ const BayarPage = () => {
         if(image === ""){
             alert("Upload bukti transaksi terlebih dahulu")
         } else {
-            navigate('/tiket')
+            handleRefresh()
             handleToTop()
         }
     }
+
+
+    const handleRefresh = () => {
+        navigate('/tiket');
+        window.location.reload();
+    };
+
 
 
     const handleToTop = () => {

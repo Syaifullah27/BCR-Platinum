@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom"
 import "./payment.css"
 import Faq from "react-faq-component";
 import { formatRupiah } from "../../Utils/FormatDatas"
+// import { unstable_HistoryRouter } from "react-router-dom"
 // import { Link } from "react-router-dom"
 
 
@@ -127,6 +128,11 @@ const PaymentPage = () => {
         navigate('/bayar')
         handleToTop()
     }
+
+
+
+
+
 
     // console.log(randomNumber);
 

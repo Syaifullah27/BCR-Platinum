@@ -9,6 +9,7 @@ import InputCopyValue from './inputCopyValue';
 import HitungMundur10mnt from './HitungMundur10mnt';
 import PDFfile from './reactPDF';
 import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
+// import { useEffect } from 'react';
 // import { addDays } from 'rsuite/esm/internals/utils/date';
 
 const TestPage = () => {
@@ -70,6 +71,7 @@ export default TestPage
 
 
 export const MyPDF = () => {
+
 
     return (
         <div className='p-5 flex flex-col justify-center items-center mb-6'>
