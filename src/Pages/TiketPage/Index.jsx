@@ -22,6 +22,7 @@ const TiketPage = () => {
         // localStorage.removeItem('endTime')
     }
     const orderId = localStorage.getItem('orderId')
+    
 
 
     return (

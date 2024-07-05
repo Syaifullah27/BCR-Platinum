@@ -7,6 +7,7 @@ import { formatRupiah } from "../../Utils/FormatDatas"
 import { useRef } from "react"
 import Footer from "../../Components/Footer"
 import HitungMundur10mnt from "../Test/HitungMundur10mnt"
+import axios from "axios"
 
 const BayarPage = () => {
     const navigate = useNavigate()
@@ -31,6 +32,7 @@ const BayarPage = () => {
 
     const inputRef = useRef(null)
     const [image, setImage] = useState("")
+    const [img, setImg] = useState(null)
     // console.log(image);
     // const [nameImg, setNameImg] = useState("")
 
@@ -41,6 +43,7 @@ const BayarPage = () => {
     const handleImgChange = (e) => {
         const file = e.target.files[0]
         console.log(file)
+        setImg(e.target.files[0])
         setImage(URL.createObjectURL(file))
         // setNameImg(e.target.files[0].name)
         // console.log(e.target.files[0].name);
@@ -126,20 +129,62 @@ const BayarPage = () => {
         }
     }
 
-    const handleUpload = () => {
-        if(image === ""){
-            alert("Upload bukti transaksi terlebih dahulu")
-        } else {
-            handleRefresh()
-            handleToTop()
-        }
-    }
+    // const handleUpload = () => {
+    //     if (image === null) {
+    //         alert("Upload bukti transaksi terlebih dahulu")
+    //     } else {
+    //         handleSubmit()
+    //         // handleRefresh()
+    //         handleToTop()
+    //     }
+    // }
 
 
     const handleRefresh = () => {
         navigate('/tiket');
         window.location.reload();
     };
+
+
+    const idCar = localStorage.getItem('idCar')
+    const [message, setMessage] = useState('')
+    const [successData, setSuccessData] = useState([]);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        const formData = new FormData()
+        formData.append("slip", img)
+    
+        const config = {
+            headers: {
+                "Content-Type": "multipart/form-data",
+                access_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY2NTI0MjUwOX0.ZTx8L1MqJ4Az8KzoeYU2S614EQPnqk6Owv03PUSnkzc"
+            }
+        }
+    
+    if(img === null) {
+        alert("Upload bukti transaksi terlebih dahulu")
+    } else {
+        try {
+            const res = await axios.put(`https://api-car-rental.binaracademy.org/customer/order/${idCar}/slip`, 
+                formData, 
+                config
+            )
+            console.log(res.data);
+            localStorage.setItem('slip', res.data.slip)
+            handleRefresh()
+            handleToTop()
+        } catch (error) {
+            console.log(error.response.data.message);
+            setMessage(error?.response?.data?.message)
+            const newElement = <div key={successData.length} className="fixed top-1/4 left-1/2 ml-[-90px] border-2 border-[#f5f5f5] px-4 py-2 rounded-md bg-green-600 text-[#f5f5f5] pop-up-delete z-50">
+            <h1>Added Successfully</h1>
+            </div>;
+            setSuccessData([...successData, newElement])
+        }
+    }
+
+    }
 
 
 
@@ -165,6 +210,10 @@ const BayarPage = () => {
                             <h1 className="font-semibold text-xl">Pembayaran</h1>
                             <p className="font-medium text-sm">Order ID : {orderId}</p>
                         </div>
+
+                        {message ? <div className="relative flex justify-center items-center">
+                                <h1 className="pop-up-delete fixed top-1/4 left-1/4  border-2 border-[#f5f5f5] px-4 py-2 rounded-md bg-red-500 text-[#f5f5f5]  z-50">{message}</h1>
+                            </div> : ""}
 
                     </div>
                     <div className="flex gap-5 justify-center items-center max-sm:gap-3">
@@ -286,26 +335,30 @@ const BayarPage = () => {
                             <p className="text-sm pt-2">Terima kasih telah melakukan konfirmasi pembayaran. Pembayaranmu akan segera kami cek tunggu kurang lebih 10 menit untuk mendapatkan konfirmasi.</p>
                             <h2 className="pt-5 font-medium">Upload bukti pembayaran</h2>
                             <p className="text-sm pt-2">Untuk membantu kami lebih cepat melakukan pengecekan. Kamu bisa upload bukti bayarmu</p>
-                            <div style={{ display: 'flex', justifyContent: 'center' , paddingTop: '20px'}}>
+                            <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '20px' }}>
                                 <div
                                     onClick={handleImgClik}
                                     className="w-full h-[200px] bg-[#f5f5f5] flex justify-center items-center cursor-pointer">
-                                    {image ? <img src={image} alt="" style={{ height: '200px' }} /> : <img src="../../images/fi_image.png" alt=""/>}
-                                    <input type="file" ref={inputRef} onChange={handleImgChange} style={{ display: 'none' }} />
+                                    {image ? <img src={image} alt="" style={{ height: '200px' }} /> : <img src="../../images/fi_image.png" alt="" />}
+                                    <input
+                                        type="file"
+                                        // name='gambar'
+                                        // value='gambar'
+                                        ref={inputRef} onChange={handleImgChange} style={{ display: 'none' }} />
                                 </div>
                             </div>
                         </div> : null
                     }
                     {
-                        konfirmasi ? <button 
-                        onClick={handleUpload} 
-                        className=" w-full mt-10 bg-[#5CB85F] text-[#f5f5f5] p-3 rounded-xl hover:bg-[#4d9b4f]">
-                                Upload
+                        konfirmasi ? <button
+                            onClick={handleSubmit}
+                            className=" w-full mt-10 bg-[#5CB85F] text-[#f5f5f5] p-3 rounded-xl hover:bg-[#4d9b4f]">
+                            Upload
                         </button>
-                        : 
-                        <button 
-                        onClick={handleKonfirmasi}
-                        className=" w-full mt-10 bg-[#5CB85F] text-[#f5f5f5] p-3 rounded-xl hover:bg-[#4d9b4f]">Konfirmasi Pembayaran</button>
+                            :
+                            <button
+                                onClick={handleKonfirmasi}
+                                className=" w-full mt-10 bg-[#5CB85F] text-[#f5f5f5] p-3 rounded-xl hover:bg-[#4d9b4f]">Konfirmasi Pembayaran</button>
                     }
                 </div>
             </div>

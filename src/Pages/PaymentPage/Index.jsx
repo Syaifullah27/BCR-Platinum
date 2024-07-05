@@ -8,12 +8,18 @@ import { useNavigate } from "react-router-dom"
 import "./payment.css"
 import Faq from "react-faq-component";
 import { formatRupiah } from "../../Utils/FormatDatas"
+import axios from "axios"
+import { useParams } from "react-router-dom"
 // import { unstable_HistoryRouter } from "react-router-dom"
 // import { Link } from "react-router-dom"
 
 
 const PaymentPage = () => {
     const navigate = useNavigate()
+    const idCar = useParams()
+    console.log(idCar.id)
+
+    const carId = localStorage.getItem('idCar')
 
     const handleBack = () => {
         navigate(-1)
@@ -40,6 +46,8 @@ const PaymentPage = () => {
         } else if (categoryCar === "medium") {
             return '4 - 6 orang'
         } else if (categoryCar === "large") {
+            return '6 - 8 orang'
+        } else if (categoryCar === "Besar") {
             return '6 - 8 orang'
         } else {
             return '-'
@@ -125,13 +133,31 @@ const PaymentPage = () => {
     localStorage.setItem('orderId', randomNumber)
 
     const handleNavigate = () => {
+        handleCreateNewOrder()
         navigate('/bayar')
         handleToTop()
     }
 
 
-
-
+// create car order
+    const handleCreateNewOrder = async () => {
+        const config = {
+            headers : {
+                access_token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY2NTI0MjUwOX0.ZTx8L1MqJ4Az8KzoeYU2S614EQPnqk6Owv03PUSnkzc',
+            }
+        }
+        const payload = {
+            start_rent_at: tglAwal,
+            finish_rent_at: tglAkhir,
+            car_id: parseInt(carId)
+        }
+        try {
+            const response = await axios.post('https://api-car-rental.binaracademy.org/customer/order', payload, config)
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
 
     // console.log(randomNumber);

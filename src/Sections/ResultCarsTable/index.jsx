@@ -12,6 +12,8 @@ const ResultCarsTable = ({ isOpen, btn, canModify,
 
     const { nameCar, capacityCar, priceCar, statusCar, setNameCar, setCapacityCar, setPriceCar, setStatusCar } = useContext(InputContext);
 
+    // console.log(statusCar);
+    console.log(detailCapacity);
 
     // untuk input value
     const handleInputName = (event) => {

@@ -46,6 +46,7 @@ const TestPage = () => {
     // }
 
     // console.log(tanggal);
+    const slip = localStorage.getItem('slip')
 
     return (
 
@@ -60,6 +61,8 @@ const TestPage = () => {
             <HitungMundur10mnt />
 
             <MyPDF />
+
+            <img src={slip} alt="" />
         </div>
     )
 }

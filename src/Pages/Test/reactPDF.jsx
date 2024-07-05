@@ -1,4 +1,4 @@
-import { Page, Text, Document, StyleSheet } from '@react-pdf/renderer';
+import { Page, Text, Document, StyleSheet, Image } from '@react-pdf/renderer';
 import { formatRupiah } from '../../Utils/FormatDatas';
 
 // Create styles
@@ -40,8 +40,11 @@ const namaMobil = localStorage.getItem('nameCar')
 const priceMobil = localStorage.getItem('priceCar')
 const awalSewa = localStorage.getItem('startDate')
 const akhirSewa = localStorage.getItem('endDate')
+const slip = localStorage.getItem('slip')
+console.log(slip);
 
-console.log(namaMobil);
+
+// console.log(namaMobil);
 
 const PDFfile = () => {
 
@@ -56,6 +59,7 @@ const PDFfile = () => {
                 <Text style={styles.detail}>Mulai Sewa : {awalSewa}</Text>
                 <Text style={styles.detail}>Selesai Sewa : {akhirSewa}</Text>
                 <Text style={styles.detail}>Nama Bank : {namaBank}</Text>
+                <Image src={slip} style={{ width: 300, height: 300 }} />
                 <Text style={styles.footer}>Terima kasih Telah Menggunakan Layanan BCR Kami</Text>
             </Page>
         </Document>

@@ -28,6 +28,7 @@ const DetailCard = ({isOpen, id}) => {
             localStorage.setItem('nameCar', (res.data.name))
             localStorage.setItem('categoryCar', (res.data.category))
             localStorage.setItem('priceCar', (res.data.price))
+            localStorage.setItem('idCar', (res.data.id))
             console.log(res.data)
         })
         .catch((err) => {
@@ -51,8 +52,12 @@ const DetailCard = ({isOpen, id}) => {
 
 
     const handleSubmit = () => {
-        navigate(`/pilih-metode/:${detailCars.id}`)
-        handleToTop()
+        if(detailCars.category === null){
+            return alert("Mobil Tidak Tersedia")
+        } else {
+            navigate(`/pilih-metode/:${detailCars.id}`)
+            handleToTop()
+        }
     }
 
 const handleBack = () => {
@@ -63,7 +68,7 @@ const handleBack = () => {
         <div className={`${isOpen ? 'blur' : ''}`}>
             <div className="detail-card-wrapper">
                 <div className="detail-card-container">
-                <img className="font-semibold absolute z-50 top-28 left-40" src="../../images/panahKiri.png" 
+                <img className="font-semibold absolute z-50 top-28 left-40 cursor-pointer" src="../../images/panahKiri.png" 
             onClick={handleBack}/>
                     <ResultCarsTable isOpen={isOpen} btn={false} canModify={false} detailName={detailCars.name} detailCapacity={detailCars.category} detailPrice={formatRupiah(detailCars.price)} detailStatus={detailCars.status}/>
                     <div className="detail-card">
