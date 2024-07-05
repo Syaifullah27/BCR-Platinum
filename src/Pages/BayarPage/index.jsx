@@ -146,9 +146,9 @@ const BayarPage = () => {
     };
 
 
-    const idCar = localStorage.getItem('idCar')
+    // const idCar = localStorage.getItem('idCar')
+    const idOrderCar = localStorage.getItem('orderId')
     const [message, setMessage] = useState('')
-    const [successData, setSuccessData] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -166,21 +166,17 @@ const BayarPage = () => {
         alert("Upload bukti transaksi terlebih dahulu")
     } else {
         try {
-            const res = await axios.put(`https://api-car-rental.binaracademy.org/customer/order/${idCar}/slip`, 
+            const res = await axios.put(`https://api-car-rental.binaracademy.org/customer/order/${idOrderCar}/slip`, 
                 formData, 
                 config
             )
-            console.log(res.data);
+            console.log(res);
             localStorage.setItem('slip', res.data.slip)
             handleRefresh()
             handleToTop()
         } catch (error) {
             console.log(error.response.data.message);
             setMessage(error?.response?.data?.message)
-            const newElement = <div key={successData.length} className="fixed top-1/4 left-1/2 ml-[-90px] border-2 border-[#f5f5f5] px-4 py-2 rounded-md bg-green-600 text-[#f5f5f5] pop-up-delete z-50">
-            <h1>Added Successfully</h1>
-            </div>;
-            setSuccessData([...successData, newElement])
         }
     }
 
@@ -212,7 +208,7 @@ const BayarPage = () => {
                         </div>
 
                         {message ? <div className="relative flex justify-center items-center">
-                                <h1 className="pop-up-delete fixed top-1/4 left-1/4  border-2 border-[#f5f5f5] px-4 py-2 rounded-md bg-red-500 text-[#f5f5f5]  z-50">{message}</h1>
+                                <h1 className=" fixed top-1/4 left-1/2 translate-x-[-50%]  border-2 border-[#f5f5f5] px-4 py-2 rounded-md bg-red-500 text-[#f5f5f5] z-50 font-medium">{message}</h1>
                             </div> : ""}
 
                     </div>

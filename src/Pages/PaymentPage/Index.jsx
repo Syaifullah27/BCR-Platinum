@@ -154,6 +154,7 @@ const PaymentPage = () => {
         try {
             const response = await axios.post('https://api-car-rental.binaracademy.org/customer/order', payload, config)
             console.log(response);
+            localStorage.setItem('orderId', response.data.id)
         } catch (error) {
             console.log(error);
         }
