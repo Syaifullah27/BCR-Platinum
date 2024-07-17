@@ -91,7 +91,7 @@ export const MyPDF = () => {
                     </PDFDownloadLink>
                 </div>
 
-                <PDFViewer width={557} height={162} showToolbar={false} className='max-sm:w-[300px]'>
+                <PDFViewer width={557} height={162} showToolbar={false}  className='max-sm:w-[300px]'>
                     <PDFfile />
                 </PDFViewer>
             </div>

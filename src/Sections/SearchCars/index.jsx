@@ -1,27 +1,34 @@
 import { useContext } from "react";
 import "./searchCars.css"
 import { InputContext } from "../../Store/inputContext";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { setCategory, setName, setPrice } from "../../redux/productSlice";
+import { useNavigate } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const SearchCars = ({ handleInputFocus, handleInputBlur, isOpen }) => {
+    const navigate = useNavigate();
 
-    const { nameCar, capacityCar, priceCar, statusCar, setNameCar, setCapacityCar, setPriceCar, setStatusCar } = useContext(InputContext);
+    const { statusCar, setStatusCar } = useContext(InputContext);
 
+    const dispatch = useDispatch();
+    const { name, price, category } = useSelector((state) => state.product);
 
     // untuk input value
-    const handleInputName = (event) => {
-        setNameCar(event.target.value);
-    }
+    // const handleInputName = (event) => {
+    //     setNameCar(event.target.value);
+    // }
 
     // opsi kapsasitas mobil
-    const handleCapacityCar = (event) => {
-        setCapacityCar(event.target.value);
-    };
+    // const handleCapacityCar = (event) => {
+    //     setCapacityCar(event.target.value);
+    // };
 
     // opsi harga sewa mobil
-    const handlePriceCar = (event) => {
-        setPriceCar(event.target.value);
-    };
+    // const handlePriceCar = (event) => {
+    //     setPriceCar(event.target.value);
+    // };
 
     // opsi sewa mobil
     const handleStatusCar = (event) => {
@@ -32,7 +39,7 @@ const SearchCars = ({ handleInputFocus, handleInputBlur, isOpen }) => {
 
     const handleButtonClick = (event) => {
         event.preventDefault();
-        window.location.href = '/result-cars';
+        navigate('/result-cars');
     }
 
 
@@ -45,8 +52,8 @@ const SearchCars = ({ handleInputFocus, handleInputBlur, isOpen }) => {
                         <label htmlFor="">Nama Mobil</label>
                         <input
                             type="text"
-                            value={nameCar}
-                            onChange={handleInputName}
+                            value={name}
+                            onChange={(e) => dispatch(setName(e.target.value))}
                             onBlur={handleInputBlur}
                             onFocus={handleInputFocus}
                             placeholder="Masukan Nama Mobil" />
@@ -55,11 +62,11 @@ const SearchCars = ({ handleInputFocus, handleInputBlur, isOpen }) => {
                         <label htmlFor="">kategori</label>
                         <select
                             defaultValue={'Masukan Kapasitas Mobil'}
-                            value={capacityCar}
-                            onChange={handleCapacityCar}
+                            value={category}
+                            onChange={(e) => dispatch(setCategory(e.target.value))}
                             onBlur={handleInputBlur}
                             onFocus={handleInputFocus}
-                            className={capacityCar ? 'hide-arrow' : ''}>
+                            className={category ? 'hide-arrow' : ''}>
                             <option value="" >Masukan Kapasitas Mobil</option>
                             <option value={"small"}>2 - 4 orang</option>
                             <option value={"medium"}>4 - 6 orang</option>
@@ -71,11 +78,11 @@ const SearchCars = ({ handleInputFocus, handleInputBlur, isOpen }) => {
                         <label htmlFor="">Harga</label>
                         <select
                             defaultValue={'Masukan Harga Sewa per Hari'}
-                            value={priceCar}
-                            onChange={handlePriceCar}
+                            value={price}
+                            onChange={(e) => dispatch(setPrice(e.target.value))}
                             onBlur={handleInputBlur}
                             onFocus={handleInputFocus}
-                            className={priceCar ? 'hide-arrow' : ''}>
+                            className={price ? 'hide-arrow' : ''}>
                             <option value="" >Masukan Harga Sewa per Hari</option>
                             <option value={400000}>&#60; Rp. 400.000</option>
                             <option value={600000}>Rp. 400.000 - Rp. 600.000</option>

@@ -9,19 +9,23 @@ import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs'
 import { DetailCarProvider } from './Store/dataDetailCar.jsx'
 import { TglSewaProvider } from './Store/tanggalSewa.jsx'
 import { DataFakturProvider } from './Store/Faktur.jsx'
+import { Provider } from 'react-redux'
+import { store } from './redux/store.js'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <InputProvider>
-      <DataFakturProvider>
-        <TglSewaProvider>
-          <DetailCarProvider>
-              <App />
-          </DetailCarProvider>
-        </TglSewaProvider>
-      </DataFakturProvider>
-      </InputProvider>
-    </LocalizationProvider>
+    <Provider store={store}>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <InputProvider>
+        <DataFakturProvider>
+          <TglSewaProvider>
+            <DetailCarProvider>
+                <App />
+            </DetailCarProvider>
+          </TglSewaProvider>
+        </DataFakturProvider>
+        </InputProvider>
+      </LocalizationProvider>
+    </Provider>
   </React.StrictMode>,
 )
