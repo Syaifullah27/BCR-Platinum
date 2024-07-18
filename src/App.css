@@ -13,6 +13,13 @@ html {
 }
 
 
+  
+  /* Untuk WebKit browsers (Chrome, Safari) */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  
+
 .skeleton-animation {
     background: linear-gradient(100deg, #e0e0e0 30%, #f0f0f0 50%, #e0e0e0 70%);
     background-size: 400% 100%;

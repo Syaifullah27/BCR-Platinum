@@ -40,6 +40,7 @@ const SearchCars = ({ handleInputFocus, handleInputBlur, isOpen }) => {
     const handleButtonClick = (event) => {
         event.preventDefault();
         navigate('/result-cars');
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
 
