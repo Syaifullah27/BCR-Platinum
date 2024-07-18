@@ -55,13 +55,14 @@ const CardCars = ({ isOpen, statusCar, isFocused }) => {
                 {
                     data?.cars?.map((data) => {
                         return (
-                            <div className="card-cars" key={data.id}>
+                            <div className="card-cars w-[320px]" key={data.id}>
                                 <img src={data.image ? data.image : noImg} alt="cars" />
                                 <p className="text-lg font-semibold">{data.name ? data.name : "Mobil"}</p>
                                 <h4 className="text-md font-semibold">{formatRupiah(data.price)} / hari</h4>
                                 <p className="desc-cars text-md font-medium">{data.desc ? data.desc : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente aperiam et perspiciatis eveniet!"}</p>
-                                <Link to={`/detail-car/${data.id}`} className="w-full">
-                                    <button onClick={() => scroolToTop()} className="card-cars-btn w-full">Pilih Mobil</button>
+                                <Link to={`/detail-car/${data.id}`} className="w-full flex justify-center items-center">
+                                    <button onClick={() => scroolToTop()} className="card-cars-btn w-full relative  max-sm:text-center max-sm:right-3">Pilih Mobil</button>
+                                    
                                 </Link>
                             </div>
                         )
