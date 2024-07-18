@@ -41,7 +41,7 @@ const CardCars = ({ isOpen, statusCar, isFocused }) => {
 
     return (
         <div className={`card-cars-wrapper ${isOpen ? " blur" : ""} ${isFocused ? "" : ""} `}>
-            {status === 'loading' && <div className="flex flex-wrap gap-4 max-[1050px] justify-center">
+            {status === 'loading' && <div className="flex flex-wrap gap-8 max-[1050px] justify-center">
                                 <Skeleton />
                                 <Skeleton />
                                 <Skeleton />
@@ -60,8 +60,8 @@ const CardCars = ({ isOpen, statusCar, isFocused }) => {
                                 <p className="text-lg font-semibold">{data.name ? data.name : "Mobil"}</p>
                                 <h4 className="text-md font-semibold">{formatRupiah(data.price)} / hari</h4>
                                 <p className="desc-cars text-md font-medium">{data.desc ? data.desc : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente aperiam et perspiciatis eveniet!"}</p>
-                                <Link to={`/detail-car/${data.id}`}>
-                                    <button onClick={() => scroolToTop()} className="card-cars-btn">Pilih Mobil</button>
+                                <Link to={`/detail-car/${data.id}`} className="w-full">
+                                    <button onClick={() => scroolToTop()} className="card-cars-btn w-full">Pilih Mobil</button>
                                 </Link>
                             </div>
                         )
@@ -81,7 +81,7 @@ const CardCars = ({ isOpen, statusCar, isFocused }) => {
                     onClick={handleNextPage}
                 >Next</button>
                 </div> */}
-            <div className={`flex justify-center gap-5 py-10 mr-[75px]`}>
+            <div className={`flex justify-center gap-5 py-10 mt-10`}>
                             {Array.from({ length: totalPages }, (_, index) => (
                                 <button
                                     className={`bg-[#ffffff] border p-2 px-5 rounded-sm font-medium text-sm ${currentPage === index + 1 ? 'bg-[#CFD4ED] border-[1px] border-blue-900' : 'opacity-40'}`}
