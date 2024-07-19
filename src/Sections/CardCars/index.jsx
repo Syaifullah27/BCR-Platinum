@@ -60,7 +60,7 @@ const CardCars = ({ isOpen, statusCar, isFocused }) => {
                                 <p className="text-lg font-semibold">{data.name ? data.name : "Mobil"}</p>
                                 <h4 className="text-md font-semibold">{formatRupiah(data.price)} / hari</h4>
                                 <p className="desc-cars text-md font-medium">{data.desc ? data.desc : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente aperiam et perspiciatis eveniet!"}</p>
-                                <Link to={`/detail-car/${data.id}`} className="w-full flex justify-center items-center">
+                                <Link to={`/detail-car/${data.id}`} className="w-full flex justify-center items-center border-2 rounded-lg bg-[#5CB85F] max-sm:pl-5">
                                     <button onClick={() => scroolToTop()} className="card-cars-btn w-full relative  max-sm:text-center max-sm:right-3">Pilih Mobil</button>
                                     
                                 </Link>
