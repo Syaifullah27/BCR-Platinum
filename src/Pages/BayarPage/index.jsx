@@ -248,7 +248,7 @@ const BayarPage = () => {
                         <h1 className="font-medium text-lg">Instruksi pembayaran</h1>
                         <div className="flex justify-between pt-2">
                             <div className="relative flex flex-col">
-                                <label className={`bank-option cursor-pointer ${metodeBank === "ATM" ? "font-semibold text-lg" : "font-semibold"}`}>
+                                <label className={`bank-option cursor-pointer ${metodeBank === "ATM" ? "font-semibold text-lg" : "font-semibold"}max-sm:text-sm`}>
                                     <input
                                         type="radio"
                                         name="metode"
@@ -260,7 +260,7 @@ const BayarPage = () => {
                                 <span className={`absolute bottom-0 h-[1px] w-full ${metodeBank === "ATM" ? "bg-[#5CB85F]" : " bg-gray-300"}`}></span>
                             </div>
                             <div className="relative flex flex-col">
-                                <label className={`bank-option cursor-pointer ${metodeBank === "M" ? "font-semibold text-lg" : "font-semibold"}`}>
+                                <label className={`bank-option cursor-pointer ${metodeBank === "M" ? "font-semibold text-lg" : "font-semibold"}max-sm:text-sm`}>
                                     <input
                                         type="radio"
                                         name="metode"
@@ -269,10 +269,10 @@ const BayarPage = () => {
                                         checked={metodeBank === "M"} />
                                     M-{namaBank}
                                 </label>
-                                <span className={`absolute bottom-0 h-[1px] w-full ${metodeBank === "M" ? "bg-[#5CB85F]" : " bg-gray-300"}`}></span>
+                                <span className={`absolute bottom-0 h-[1px] w-full ${metodeBank === "M" ? "bg-[#5CB85F]" : " bg-gray-300"} `}></span>
                             </div>
                             <div className="relative flex flex-col">
-                                <label className={`bank-option  cursor-pointer ${metodeBank === "Klik" ? "font-semibold text-lg" : "font-semibold"}`}>
+                                <label className={`bank-option  cursor-pointer ${metodeBank === "Klik" ? "font-semibold text-lg" : "font-semibold"}max-sm:text-sm`}>
                                     <input
                                         type="radio"
                                         name="metode"
@@ -284,7 +284,7 @@ const BayarPage = () => {
                                 <span className={`absolute bottom-0 h-[1px] w-full ${metodeBank === "Klik" ? "bg-[#5CB85F]" : " bg-gray-300"}`}></span>
                             </div>
                             <div className="relative flex flex-col">
-                                <label className={`bank-option cursor-pointer ${metodeBank === "Internet" ? "font-semibold text-lg" : "font-semibold"}`}>
+                                <label className={`bank-option cursor-pointer ${metodeBank === "Internet" ? "font-semibold text-lg" : "font-semibold"}max-sm:text-sm`}>
                                     <input
                                         type="radio"
                                         name="metode"
