@@ -9,21 +9,22 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { fetchData, setPage } from "../../redux/productSlice";
 import Skeleton from "../../Components/skeleton";
+import Pagination from "../../Components/Pagination/Pagination";
 
 // eslint-disable-next-line react/prop-types
 const CardCars = ({ isOpen, statusCar, isFocused }) => {
     const dispatch = useDispatch();
-    const { data, name, price, category, currentPage, totalPages, status } = useSelector((state) => state.product);
+    const { data, name, price, category, totalPages, currentPage, status } = useSelector((state) => state.product);
     console.log(data);
-    
+
     useEffect(() => {
         dispatch(fetchData({ page: currentPage, category, price, statusCar, name }));
-    }, [dispatch, currentPage, category, price, statusCar , name]);
+    }, [dispatch, currentPage, category, price, statusCar, name]);
 
     console.log(name);
 
-    
-    
+
+
     const scroolToTop = () => {
         window.scrollTo({
             top: 0,
@@ -39,19 +40,20 @@ const CardCars = ({ isOpen, statusCar, isFocused }) => {
 
 
 
+
     return (
         <div className={`card-cars-wrapper ${isOpen ? " blur" : ""} ${isFocused ? "" : ""} `}>
             {status === 'loading' && <div className="flex flex-wrap gap-8 max-[1050px] justify-center">
-                                <Skeleton />
-                                <Skeleton />
-                                <Skeleton />
-                                <Skeleton />
-                                <Skeleton />
-                                <Skeleton />
-                            </div>}
-            {status === 'failed' && <p>Eror fetching data</p>}
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+            </div>}
+            {status === 'failed' && <p className="text-center font-medium">Eror fetching data</p>}
             {status === 'succeeded' && <div className="card-cars-container">
-                {data?.cars?.length === 0 && <p>No data</p>}
+                {data?.cars?.length === 0 && <p className="text-center font-medium">No data</p>}
                 {
                     data?.cars?.map((data) => {
                         return (
@@ -62,38 +64,20 @@ const CardCars = ({ isOpen, statusCar, isFocused }) => {
                                 <p className="desc-cars text-md font-medium">{data.desc ? data.desc : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente aperiam et perspiciatis eveniet!"}</p>
                                 <Link to={`/detail-car/${data.id}`} className="w-full flex justify-center items-center border-2 rounded-lg bg-[#5CB85F] max-sm:pl-5">
                                     <button onClick={() => scroolToTop()} className="card-cars-btn w-full relative  max-sm:text-center max-sm:right-3">Pilih Mobil</button>
-                                    
+
                                 </Link>
                             </div>
                         )
                     })
-                }  
+                }
             </div>}
-            
-            
-                {/* <div className="pagination" >
-                <button className="pagination-btn" hidden={page === 1}
-                    onClick={handlePrevPage}
-                >Prev</button>
-                    <p hidden={dataCars.length < 9}>{page}</p>
-                <button
-                    hidden={dataCars.length < 9}
-                    className="pagination-btn"
-                    onClick={handleNextPage}
-                >Next</button>
-                </div> */}
-            <div className={`flex justify-center gap-5 py-10 mt-10`}>
-                            {Array.from({ length: totalPages }, (_, index) => (
-                                <button
-                                    className={`bg-[#ffffff] border p-2 px-5 rounded-sm font-medium text-sm ${currentPage === index + 1 ? 'bg-[#CFD4ED] border-[1px] border-blue-900' : 'opacity-40'}`}
-                                    key={index}
-                                    onClick={() => handlePageChange(index + 1)}
-                                    disabled={currentPage === index + 1}
-                                >
-                                    {index + 1}
-                                </button>
-                            ))}
-                        </div>
+
+            <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+            />
+
         </div>
     )
 }

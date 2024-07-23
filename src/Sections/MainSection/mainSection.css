@@ -22,7 +22,7 @@ nav.open {
     background-color: #F1F3FF;
     display: flex;
     justify-content: end;
-    height: 580px;
+    height: 100vh;
 }
 
 .main-section-container {

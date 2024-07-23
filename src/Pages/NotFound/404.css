@@ -38,7 +38,14 @@
     padding-bottom: 27px;
 }
 
-.btn-not-found {
+.text-shadow {
+    text-shadow: 0px 0px 50px rgb(122, 16, 16);
+}
+
+.text-shadow2 {
+    text-shadow: 0px 0px 50px rgb(212, 161, 18);
+}
+/* .btn-not-found {
     width: 160px;
     border: none;
     background-color: rgb(255, 255, 255);
@@ -51,7 +58,7 @@
     align-items: center;
     gap: 6px;
     transition: .3s  all ease;
-}
+} */
 
 .btn-not-found:hover {
     box-shadow: 0px 0px 20px rgb(255, 255, 255);

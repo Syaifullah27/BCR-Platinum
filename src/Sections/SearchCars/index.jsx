@@ -101,8 +101,8 @@ const SearchCars = ({ handleInputFocus, handleInputBlur, isOpen }) => {
                             onFocus={handleInputFocus}
                             className={statusCar ? 'hide-arrow' : ''}>
                             <option value="" >Disewa</option>
-                            <option value={true}>Tersedia</option>
-                            <option value={false}>Tidak Tersedia</option>
+                            <option value={false}>Tersedia</option>
+                            <option value={true}>Tidak Tersedia</option>
                         </select>
                     </div>
 

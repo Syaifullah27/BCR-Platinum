@@ -8,10 +8,10 @@ const NotFound = () => {
         <div className="not-found-wrapper">
             <div className="not-found-container">
                 <div className="not-found">
-                    <h1>404</h1>
-                    <h2>Page Not Found</h2>
+                    <h1 className="text-shadow">404</h1>
+                    <h2 className="text-shadow2">Page Not Found</h2>
                     <Link to="/" style={{ textDecoration: "none" }}>
-                        <button className="btn-not-found"><FontAwesomeIcon icon={faArrowLeft} />Back To Home</button>
+                        <button className="text-slate-900 bg-white p-4 rounded-xl px-4 text-center font-semibold tracking-widest flex gap-4 justify-center items-center btn-not-found ease-in-out duration-500"><FontAwesomeIcon icon={faArrowLeft} />Back To Home</button>
                     </Link>
                 </div>
             </div>

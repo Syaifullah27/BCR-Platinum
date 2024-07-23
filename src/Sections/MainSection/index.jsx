@@ -15,7 +15,9 @@ const MainSection = ({ isOpen, btn, isFocused, ptMainSection }) => {
                             {btn === true ? <Button /> : null}
                         </div>
                         <div className="right-main-section w-full">
-                            <img src="./images/img_car.png" alt="main-img" className="w-[665px]"/>
+                            <div className=" bg-[#0D28A6] rounded-tl-[50px] h-[300px]">
+                                <img src="./images/MercedesCar.png" alt="" className="relative bottom-[150px]"/>
+                            </div>
                         </div>
                     </div>
                 </div> :  <div style={{ paddingTop: '90px' }}

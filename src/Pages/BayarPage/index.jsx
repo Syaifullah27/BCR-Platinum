@@ -129,15 +129,6 @@ const BayarPage = () => {
         }
     }
 
-    // const handleUpload = () => {
-    //     if (image === null) {
-    //         alert("Upload bukti transaksi terlebih dahulu")
-    //     } else {
-    //         handleSubmit()
-    //         // handleRefresh()
-    //         handleToTop()
-    //     }
-    // }
 
 
     const handleRefresh = () => {
@@ -188,11 +179,6 @@ const BayarPage = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    // return <div className="w-full h-full flex flex-col border flex-1 rounded-xl shadow-xl p-7">
-    //     <h1 className="font-medium text-lg">Konfirmasi Pembayaran</h1>
-    //     <p className="text-sm">Terima kasih telah melakukan konfirmasi pembayaran. Pembayaranmu akan segera kami cek tunggu kurang lebih 10 menit untuk mendapatkan konfirmasi.</p>
-    //     <button className=" w-full mt-10 bg-[#5CB85F] text-[#f5f5f5] p-3 rounded-xl hover:bg-[#4d9b4f]">Upload</button>
-    // </div>
 
     return (
         <div>

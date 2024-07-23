@@ -3,61 +3,45 @@ import "./resultTable.css";
 import { InputContext } from "../../Store/inputContext";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { setCategory, setName, setPrice } from "../../redux/productSlice";
+import { setCategory, setName, setPrice, setPage } from "../../redux/productSlice";
 // eslint-disable-next-line react/prop-types
-const ResultCarsTable = ({isOpen,btn,canModify,
-    // eslint-disable-next-line react/prop-types
-detailName,detailCapacity,detailPrice,
-    // eslint-disable-next-line react/prop-types
-    handleInputBlur,handleInputFocus,
-}) => {
-    const {
-        // nameCar,
-        // capacityCar,
-        // priceCar,
-        statusCar,
-        // setNameCar,
-        // setCapacityCar,
-        // setPriceCar,
-        setStatusCar,
-    } = useContext(InputContext);
-
-    // console.log(statusCar);
-    // console.log(detailCapacity);
-
-    // untuk input value
-    // const handleInputName = (event) => {
-    //     setNameCar(event.target.value);
-    //     // console.log(nameCar);
-    // };
-
-    // // opsi kapsasitas mobil
-    // const handleCapacityCar = (event) => {
-    //     setCapacityCar(event.target.value);
-    //     // console.log(capacityCar);
-    // };
-
-    // // opsi harga sewa mobil
-    // const handlePriceCar = (event) => {
-    //     setPriceCar(event.target.value);
-    // };
+const ResultCarsTable = ({isOpen,btn,canModify,detailName,detailCapacity,detailPrice,handleInputBlur,handleInputFocus,detailStatus}) => {
+    const { statusCar,setStatusCar} = useContext(InputContext);
 
     // opsi sewa mobil
-    const handleStatusCar = (event) => {
-        setStatusCar(event.target.value);
-    };
 
     const handleBtn = () => {
         dispatch(setName(""));
         dispatch(setPrice(""));
         dispatch(setCategory(""));
+        dispatch(setPage(1));
         setStatusCar("");
     };
 
 
     const dispatch = useDispatch();
     const { name, price, category } = useSelector((state) => state.product);
-    console.log(name);
+    // console.log(name);
+
+    const handleSetCar = (e) => {
+        dispatch(setName(e.target.value));
+        dispatch(setPage(1));
+    }
+
+    const handleSetCapacity = (e) => {
+        dispatch(setCategory(e.target.value));
+        dispatch(setPage(1));
+    }
+
+    const handleSetPrice = (e) => {
+        dispatch(setPrice(e.target.value));
+        dispatch(setPage(1));
+    }
+
+    const handleSetStatus = (e) => {
+        setStatusCar(e.target.value);
+        dispatch(setPage(1));
+    }
 
     return (
         <>
@@ -74,7 +58,7 @@ detailName,detailCapacity,detailPrice,
                                         onBlur={handleInputBlur}
                                         onFocus={handleInputFocus}
                                         value={name}
-                                        onChange={(e) => dispatch(setName(e.target.value))}
+                                        onChange={handleSetCar}
                                         type="text"
                                         placeholder="Masukan Nama Mobil"
                                     />
@@ -85,7 +69,7 @@ detailName,detailCapacity,detailPrice,
                                         className={`text-sm  ${category ? "hide-arrow" : ""}`}
                                         defaultValue={""}
                                         value={category}
-                                        onChange={(e) => dispatch(setCategory(e.target.value))}
+                                        onChange={handleSetCapacity}
                                         onBlur={handleInputBlur}
                                         onFocus={handleInputFocus}
                                     >
@@ -105,7 +89,7 @@ detailName,detailCapacity,detailPrice,
                                         onFocus={handleInputFocus}
                                         defaultValue={""}
                                         value={price}
-                                        onChange={(e) => dispatch(setPrice(e.target.value))}
+                                        onChange={handleSetPrice}
                                     >
                                         <option value="" disabled hidden>
                                             Masukan Harga Sewa per Hari
@@ -123,7 +107,7 @@ detailName,detailCapacity,detailPrice,
                                         onFocus={handleInputFocus}
                                         defaultValue={""}
                                         value={statusCar}
-                                        onChange={handleStatusCar}
+                                        onChange={handleSetStatus}
                                     >
                                         <option value="" disabled hidden>
                                             Disewa
@@ -212,11 +196,8 @@ detailName,detailCapacity,detailPrice,
                                             outline: "none",
                                         }}
                                     >
-                                        <option value="value1" disabled hidden>
-                                            Disewa
-                                        </option>
-                                        <option value="value1">
-                                            {detailCapacity ? "Tersedia" : "Tidak Tersedia"}
+                                        <option value={detailStatus}>
+                                            {detailStatus === true ? "Tidak Tersedia" : "Tersedia"}
                                         </option>
                                         {/* <option value="value2">Disewakan</option> */}
                                     </select>

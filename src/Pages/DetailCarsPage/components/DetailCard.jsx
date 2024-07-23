@@ -35,7 +35,7 @@ const DetailCard = ({isOpen, id}) => {
             console.log(err)
         })
     }
-
+    
     useEffect(() => {
         getDetailCars()
     }, [])
@@ -52,7 +52,7 @@ const DetailCard = ({isOpen, id}) => {
 
 
     const handleSubmit = () => {
-        if(detailCars.category === null){
+        if(detailCars.status === true){
             return alert("Mobil Tidak Tersedia")
         } else {
             navigate(`/pilih-metode/:${detailCars.id}`)
