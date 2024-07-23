@@ -32,6 +32,13 @@ nav.open {
     overflow: hidden;
 }
 
+.main-section-container2 {
+    display: flex;
+    gap: 30px;
+    max-width: 1175px;
+    overflow: hidden;
+}
+
 .left-main-section {
     padding-top: 70px;
     display: flex;
@@ -87,8 +94,17 @@ nav.open {
     .main-section-container {
         flex-direction: column;
         align-items: center;
+        gap: 90px;
         margin: 0px 0px 0px 0px;
         padding-left: 20px;
+    }
+
+    .main-section-container2 {
+        flex-direction: column;
+        align-items: center;
+        margin: 0px 0px 0px 0px;
+        padding-left: 20px;
+        gap: 0px;
     }
 
     .right-main-section img {

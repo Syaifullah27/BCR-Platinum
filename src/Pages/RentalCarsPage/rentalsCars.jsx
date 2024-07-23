@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Footer from "../../Components/Footer"
 import Navbar from "../../Components/Navbar"
-import MainSection from "../../Sections/MainSection"
+import  { MainSection2 } from "../../Sections/MainSection"
 import SearchCars from "../../Sections/SearchCars"
 // import { useNavigate } from "react-router-dom"
 
@@ -36,7 +36,7 @@ const RentalsPage = ({ inMenu }) => {
             setIsMenuOpen={setIsMenuOpen} 
             logoBtn={false}/>
 
-            <MainSection 
+            <MainSection2 
             isOpen={isMenuOpen} 
             isFocused={isFocused} 
             ptMainSection={false}/>

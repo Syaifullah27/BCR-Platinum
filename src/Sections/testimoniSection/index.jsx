@@ -104,7 +104,9 @@ const TestimoniSection = ({ isOpen }) => {
                                         <div className="testimoni-card">
                                             <img src={data.img} alt="testimoni-img" />
                                             <div className="card-list">
-                                                <img src={data.rate} alt="" />
+                                                <div className="flex  max-sm: justify-center max-sm:items-center  w-full max-sm:pb-2">
+                                                    <img src={data.rate} alt="" />
+                                                </div>
                                                 <p className="text-sm">"{data.desc}"</p>
                                                 <h4 className="font-semibold">{data.title}</h4>
                                             </div>
