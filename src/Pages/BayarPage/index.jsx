@@ -246,9 +246,9 @@ const BayarPage = () => {
                     </div>
                     <div className="border flex flex-col rounded-xl gap-2 shadow-xl p-5 pb-10">
                         <h1 className="font-medium text-lg">Instruksi pembayaran</h1>
-                        <div className="flex justify-between pt-2">
+                        <div className="flex justify-between pt-2 max-sm:gap-3 max-sm:justify-center max-sm:items-center">
                             <div className="relative flex flex-col">
-                                <label className={`bank-option cursor-pointer ${metodeBank === "ATM" ? "font-semibold text-lg" : "font-semibold"}max-sm:text-sm`}>
+                                <label className={`bank-option cursor-pointer ${metodeBank === "ATM" ? "font-semibold text-lg" : "font-semibold"}max-sm:text-sm max-sm:text-center`}>
                                     <input
                                         type="radio"
                                         name="metode"
@@ -260,7 +260,7 @@ const BayarPage = () => {
                                 <span className={`absolute bottom-0 h-[1px] w-full ${metodeBank === "ATM" ? "bg-[#5CB85F]" : " bg-gray-300"}`}></span>
                             </div>
                             <div className="relative flex flex-col">
-                                <label className={`bank-option cursor-pointer ${metodeBank === "M" ? "font-semibold text-lg" : "font-semibold"}max-sm:text-sm`}>
+                                <label className={`bank-option cursor-pointer ${metodeBank === "M" ? "font-semibold text-lg" : "font-semibold"}max-sm:text-sm max-sm:text-center`}>
                                     <input
                                         type="radio"
                                         name="metode"
@@ -272,7 +272,7 @@ const BayarPage = () => {
                                 <span className={`absolute bottom-0 h-[1px] w-full ${metodeBank === "M" ? "bg-[#5CB85F]" : " bg-gray-300"} `}></span>
                             </div>
                             <div className="relative flex flex-col">
-                                <label className={`bank-option  cursor-pointer ${metodeBank === "Klik" ? "font-semibold text-lg" : "font-semibold"}max-sm:text-sm`}>
+                                <label className={`bank-option  cursor-pointer ${metodeBank === "Klik" ? "font-semibold text-lg" : "font-semibold"}max-sm:text-sm max-sm:text-center`}>
                                     <input
                                         type="radio"
                                         name="metode"
@@ -284,7 +284,7 @@ const BayarPage = () => {
                                 <span className={`absolute bottom-0 h-[1px] w-full ${metodeBank === "Klik" ? "bg-[#5CB85F]" : " bg-gray-300"}`}></span>
                             </div>
                             <div className="relative flex flex-col">
-                                <label className={`bank-option cursor-pointer ${metodeBank === "Internet" ? "font-semibold text-lg" : "font-semibold"}max-sm:text-sm`}>
+                                <label className={`bank-option cursor-pointer ${metodeBank === "Internet" ? "font-semibold text-lg" : "font-semibold"}max-sm:text-sm max-sm:text-center`}>
                                     <input
                                         type="radio"
                                         name="metode"
@@ -332,15 +332,15 @@ const BayarPage = () => {
                         </div> : null
                     }
                     {
-                        konfirmasi ? <button
+                        konfirmasi ? <div
                             onClick={handleSubmit}
-                            className=" w-full mt-10 bg-[#5CB85F] text-[#f5f5f5] p-3 rounded-xl hover:bg-[#4d9b4f]">
+                            className="cursor-pointer text-center w-full mt-10 bg-[#5CB85F] text-[#f5f5f5] p-3 rounded-xl hover:bg-[#4d9b4f]">
                             Upload
-                        </button>
+                        </div>
                             :
-                            <button
+                            <div
                                 onClick={handleKonfirmasi}
-                                className=" w-full mt-10 bg-[#5CB85F] text-[#f5f5f5] p-3 rounded-xl hover:bg-[#4d9b4f]">Konfirmasi Pembayaran</button>
+                                className="cursor-pointer text-center w-full mt-10 bg-[#5CB85F] text-[#f5f5f5] p-3 rounded-xl hover:bg-[#4d9b4f]">Konfirmasi Pembayaran</div>
                     }
                 </div>
             </div>

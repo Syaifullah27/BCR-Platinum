@@ -109,7 +109,7 @@ select:focus {
     right: 0;
     left: 0;
     position: absolute;
-    height: 163%;
+    height: 100%;
     width: 100%;
     /* border: 1px solid red; */
     background-color:rgba(0, 0, 0, 0.61);
@@ -122,7 +122,7 @@ select:focus {
     right: 0;
     left: 0;
     position: absolute;
-    height: 252%;
+    height: 100%;
     width: 100%;
     /* border: 1px solid red; */
     background-color:rgba(0, 0, 0, 0.61);
@@ -130,7 +130,7 @@ select:focus {
 
 @media screen and (max-width: 768px) {
 .focused::before{
-    height: 300%;
+    height: 100%;
 }
 
     .search-cars-wrapper  {

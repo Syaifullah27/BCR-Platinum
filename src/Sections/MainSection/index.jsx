@@ -46,7 +46,7 @@ export default MainSection
 export const MainSection2 = ({ isOpen, btn, isFocused }) => {
     return (
         <div 
-                className={`main-section-wrapper ${isOpen ? 'blur' : ''} ${isFocused ? 'focused' : ''}`} id="home">
+                className={`main-section-wrapper ${isOpen ? 'blur' : ''} ${isFocused ? '' : ''}`} id="home">
                     <div className="main-section-container2">
                         <div className="left-main-section">
                             <h1 className="title">Sewa & Rental Mobil Terbaik Di Kawasan (Lokasimu)</h1>

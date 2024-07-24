@@ -15,20 +15,6 @@ const SearchCars = ({ handleInputFocus, handleInputBlur, isOpen }) => {
     const dispatch = useDispatch();
     const { name, price, category } = useSelector((state) => state.product);
 
-    // untuk input value
-    // const handleInputName = (event) => {
-    //     setNameCar(event.target.value);
-    // }
-
-    // opsi kapsasitas mobil
-    // const handleCapacityCar = (event) => {
-    //     setCapacityCar(event.target.value);
-    // };
-
-    // opsi harga sewa mobil
-    // const handlePriceCar = (event) => {
-    //     setPriceCar(event.target.value);
-    // };
 
     // opsi sewa mobil
     const handleStatusCar = (event) => {
@@ -45,7 +31,7 @@ const SearchCars = ({ handleInputFocus, handleInputBlur, isOpen }) => {
 
 
     return (
-        <div className={"search-cars-wrapper" + (isOpen ? " blur" : "")}>
+        <div className={"search-cars-wrapper" + (isOpen ? " blur" : "") }>
             <div className="search-cars-container">
                 <div className="search-cars">
 

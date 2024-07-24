@@ -7,8 +7,8 @@ const Footer = ({ isOpen, isFocused, inMenu }) => {
 
 
     return (
-        <div className={"footer-wrapper" + (isOpen ? " blur" : "") + (isFocused ? "" : "")}>
-            <div className="footer-container">
+        <div className={`footer-wrapper ${isOpen ? "blur" : ""}  ${isFocused ? "" : ""}`}>
+            <div className="footer-container ">
                 <div className="footer-contact">
                     <p>Jalan Suroyo No. 161 Mayangan Kota Probolonggo 672000</p>
                     <p>binarcarrental@gmail.com</p>
@@ -53,7 +53,7 @@ const Footer = ({ isOpen, isFocused, inMenu }) => {
                 </div>
                 <div className="footer-copyright">
                     <p>Copyright Binar 2024</p>
-                    <h1 className='text-3xl font-semibold bg-[#0D28A6] text-[#f5f5f5] py-2 px-5'>Logo</h1>
+                    <h1 className='rounded-md text-3xl font-semibold bg-[#0D28A6] text-[#f5f5f5] py-2 px-5'>Logo</h1>
                     {/* <img src="./images/EsyehaCarRentals.png" alt=""/> */}
                 </div>
             </div>

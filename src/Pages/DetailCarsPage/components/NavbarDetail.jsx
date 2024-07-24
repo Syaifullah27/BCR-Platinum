@@ -20,9 +20,9 @@ export function NavbarDetail({ isOpen, toggleMenu, }) {
     return (
         <div className="navbar-wrapper">
             <nav className="navbar">
-                <div className={`logo ${isOpen ? 'blur' : ''}`}>
+                <div className={` ${isOpen ? 'blur' : ''}`}>
                     {/* <img src="./../images/EsyehaCarRentals.png" width={"210"}/> */}
-                    <h1  className={`text-3xl font-semibold bg-[#0D28A6] text-[#f5f5f5] py-2 px-5 ${isOpen ? 'blur' : ''}`}>Logo</h1>
+                    <h1  className={`rounded-md text-3xl font-semibold bg-[#0D28A6] text-[#f5f5f5] py-2 px-5 ${isOpen ? 'blur' : ''}`}>Logo</h1>
                 </div>
                 <div className="menu-toggle">
                     <input type="checkbox" onClick={toggleMenu} />

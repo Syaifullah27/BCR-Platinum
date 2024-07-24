@@ -26,7 +26,7 @@ const Navbar = ({isOpen, toggleMenu, inMenu, logoBtn, boxShadow, }) => {
                 boxShadow: "0px 0px 16px rgba(0, 0, 0, 0.1)"}}
                 className="navbar-wrapper">
                     <nav className="navbar">
-                        <h1 className={`text-3xl font-semibold bg-[#0D28A6] text-[#f5f5f5] py-2 px-5 ${isOpen ? 'blur' : ''}`}>Logo</h1>
+                        <h1 className={`rounded-md text-3xl font-semibold bg-[#0D28A6] text-[#f5f5f5] py-2 px-5 ${isOpen ? 'blur' : ''}`}>Logo</h1>
                         {/* <img src={`./images/EsyehaCarRentals.png` } className={`${isOpen ? 'blur' : ''} logo`}/> */}
                         <div className='backToMenu'>
                             {
@@ -70,7 +70,7 @@ const Navbar = ({isOpen, toggleMenu, inMenu, logoBtn, boxShadow, }) => {
                 <div
                 className="navbar-wrapper">
                     <nav className="navbar">
-                        <h1 className={`text-3xl font-semibold bg-[#0D28A6] text-[#f5f5f5] py-2 px-5 ${isOpen ? 'blur' : ''}`}>Logo</h1>
+                        <h1 className={`rounded-md text-3xl font-semibold bg-[#0D28A6] text-[#f5f5f5] py-2 px-5 ${isOpen ? 'blur' : ''}`}>Logo</h1>
                         {/* <img src='./images/EsyehaCarRentals.png' className={`${isOpen ? 'blur' : ''} logo`}/> */}
                         <div className='backToMenu'>
                             {

@@ -28,9 +28,9 @@ const RentalsPage = ({ inMenu }) => {
 
     
     return (
-        <div>
+        <div className={` relative  ${isFocused ? 'focused' : ''}`}>
             <Navbar 
-            isFocused={isFocused} 
+
             isOpen={isMenuOpen} 
             toggleMenu={toggleMenu} 
             setIsMenuOpen={setIsMenuOpen} 
@@ -38,7 +38,7 @@ const RentalsPage = ({ inMenu }) => {
 
             <MainSection2 
             isOpen={isMenuOpen} 
-            isFocused={isFocused} 
+            // isFocused={isFocused} 
             ptMainSection={false}/>
 
             <SearchCars 
