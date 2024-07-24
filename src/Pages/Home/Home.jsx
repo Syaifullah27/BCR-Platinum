@@ -19,7 +19,7 @@ const HomePage = ({ inMenu }) => {
 
 
     return (
-        <div>
+        <div className='w-full z-50 overflow-x-hidden'>
             <Navbar boxShadow={true}
             isOpen={isMenuOpen} toggleMenu={toggleMenu} setIsMenuOpen={setIsMenuOpen} inMenu={inMenu} logoBtn={true}/>
             <MainSection isOpen={isMenuOpen} btn={true} ptMainSection={true}/>

@@ -60,7 +60,7 @@ const FaqSections = ({ isOpen }) => {
     const controls = useAnimation();
     const [ref, inView] = useInView({
         triggerOnce: false, // biar bisa animasi muncul dan menghilang
-        threshold: 0.6 // proporsi tampilan gambar di viewport untuk memicu animasi
+        threshold: 0.9 // proporsi tampilan gambar di viewport untuk memicu animasi
     });
 
     React.useEffect(() => {

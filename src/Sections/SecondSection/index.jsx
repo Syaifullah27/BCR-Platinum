@@ -8,8 +8,8 @@ const SecondSection = ({ isOpen }) => {
     const controls = useAnimation();
     const [ref, inView] = useInView({
         triggerOnce: false, // biar bisa animasi muncul dan menghilang
-        threshold: 0.1 // proporsi tampilan gambar di viewport untuk memicu animasi
-    });
+        threshold: 0.4 // proporsi tampilan gambar di viewport untuk memicu animasi
+    })
 
     React.useEffect(() => {
         if (inView) {
@@ -26,7 +26,7 @@ const SecondSection = ({ isOpen }) => {
             opacity: 1,
             x: 0,
             transition: {
-                delay: i * 0.3,
+                delay: i * 0.2,
                 duration: 0.5,
             },
         }),
@@ -36,7 +36,7 @@ const SecondSection = ({ isOpen }) => {
     return (
         <div className={`second-section-wrapper ${isOpen ? 'blur' : ''}`} id="services">
             <div className="second-section-container">
-                <div className="left-second-section w-full flex flex-col items-center">
+                <div className="left-second-section w-full flex flex-col items-center max-sm:mr-10">
                     <motion.img
                         ref={ref}
                         src="./images/img_service.png" // Ganti dengan path gambar yang sesuai

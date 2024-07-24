@@ -8,7 +8,7 @@ const WhyUsSection = ({ isOpen }) => {
     const controls = useAnimation();
     const [ref, inView] = useInView({
         triggerOnce: false, // biar bisa animasi muncul dan menghilang
-        threshold: 0.5 // proporsi tampilan gambar di viewport untuk memicu animasi
+        threshold: 0.4 // proporsi tampilan gambar di viewport untuk memicu animasi
     });
 
     React.useEffect(() => {

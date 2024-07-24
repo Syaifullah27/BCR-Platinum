@@ -9,33 +9,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { useRef } from "react";
+import React from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
-
-
-
-// function SampleNextArrow(props) {
-//     // eslint-disable-next-line react/prop-types
-//     const { className, style, onClick } = props;
-//     return (
-//         <div
-//             className={className}
-//             style={{ ...style, marginRight: "20px", background: "#5CB85F", borderRadius: "50%", width: "25px", height: "25px", display: "flex", justifyContent: "center", alignItems: "center", }}
-//             onClick={onClick}
-//         />
-//     );
-// }
-
-// function SamplePrevArrow(props) {
-//     // eslint-disable-next-line react/prop-types
-//     const { className, style, onClick } = props;
-//     return (
-//         <div
-//             className={className}
-//             style={{ ...style, marginLeft: "20px", zIndex: 1, backgroundColor: "#5CB85F", borderRadius: "50%", width: "25px", height: "25px", display: "flex", justifyContent: "center", alignItems: "center", }}
-//             onClick={onClick}
-//         />
-//     );
-// }
 
 
 
@@ -84,39 +61,66 @@ const TestimoniSection = ({ isOpen }) => {
         ]
     };
 
+    const controls = useAnimation();
+    const [ref, inView] = useInView({
+        triggerOnce: false, // biar bisa animasi muncul dan menghilang
+        threshold: 0.9 // proporsi tampilan gambar di viewport untuk memicu animasi
+    })
+
+    React.useEffect(() => {
+        if (inView) {
+            controls.start('visible');
+        } else {
+            controls.start('hidden');
+        }
+    }, [controls, inView]);
+
+
+
+
 
     return (
-        <div className={`${isOpen ? 'blur' : ''}`} id="testimony">
+        <div
+            ref={ref}
+            className={`${isOpen ? 'blur' : ''}`} id="testimony">
             <div className="testimoni-container">
                 <h1 className="text-3xl font-semibold">Testimonial</h1>
                 <p>Berbagai review positif dari para pelanggan kami</p>
-                <div
-                    className="testimoni-card-container">
-                    <Slider ref={slider => {
-                        sliderRef = slider;
-                    }}
-                        {...settings}>
-                        {
-                            dataTestimoni.map((data) => {
-                                return (
-                                    <div style={{ width: 650 }}
-                                        key={data.id}>
-                                        <div className="testimoni-card">
-                                            <img src={data.img} alt="testimoni-img" />
-                                            <div className="card-list">
-                                                <div className="flex  max-sm: justify-center max-sm:items-center  w-full max-sm:pb-2">
-                                                    <img src={data.rate} alt="" />
+                <motion.div
+                    initial="hidden"
+                    animate={controls}
+                    variants={{
+                        hidden: { opacity: 0, y: -100 },
+                        visible: { opacity: 1, y: 0 },
+                    }}>
+                    <div
+                        className="testimoni-card-container">
+                        <Slider ref={slider => {
+                            sliderRef = slider;
+                        }}
+                            {...settings}>
+                            {
+                                dataTestimoni.map((data) => {
+                                    return (
+                                        <div style={{ width: 650 }}
+                                            key={data.id}>
+                                            <div className="testimoni-card">
+                                                <img src={data.img} alt="testimoni-img" />
+                                                <div className="card-list">
+                                                    <div className="flex  max-sm: justify-center max-sm:items-center  w-full max-sm:pb-2">
+                                                        <img src={data.rate} alt="" />
+                                                    </div>
+                                                    <p className="text-sm">"{data.desc}"</p>
+                                                    <h4 className="font-semibold">{data.title}</h4>
                                                 </div>
-                                                <p className="text-sm">"{data.desc}"</p>
-                                                <h4 className="font-semibold">{data.title}</h4>
                                             </div>
                                         </div>
-                                    </div>
-                                )
-                            })
-                        }
-                    </Slider>
-                </div>
+                                    )
+                                })
+                            }
+                        </Slider>
+                    </div>
+                </motion.div>
                 <div className="arrow-btn">
                     <button className="btn-prev" onClick={previous}>
                         <FontAwesomeIcon icon={faAngleLeft} />
