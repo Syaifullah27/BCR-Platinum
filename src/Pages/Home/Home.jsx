@@ -17,16 +17,8 @@ const HomePage = ({ inMenu }) => {
         setIsMenuOpen(!isMenuOpen)
     }
 
-    // tutup kembali jika menu jika klik diluar menu
-    // const closeMenu = () => {
-    //   if (isMenuOpen) {
-    //     setIsMenuOpen(false)
-
-    //   }
-    // }
 
     return (
-        // <div className="App" onClick={closeMenu}>
         <div>
             <Navbar boxShadow={true}
             isOpen={isMenuOpen} toggleMenu={toggleMenu} setIsMenuOpen={setIsMenuOpen} inMenu={inMenu} logoBtn={true}/>
