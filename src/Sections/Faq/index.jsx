@@ -52,7 +52,7 @@ const FaqSections = ({ isOpen }) => {
     
     const config = {
         animate: true,
-        arrowIcon: <img src="./public/images/down.png" alt="bawah" />,
+        arrowIcon: <p className="font-bold text-xl">&#8964;</p>,
         tabFocus: true
     };
 

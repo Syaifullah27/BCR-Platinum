@@ -112,7 +112,7 @@ const PaymentPage = () => {
 
     const config = {
         animate: true,
-        arrowIcon: <img src="../../public/images/down.png" alt="bawah" hidden={selectedBank === ""} />,
+        arrowIcon: <p className="font-bold text-xl" hidden={selectedBank === ""}>&#8964;</p>,
         tabFocus: true
     };
 
