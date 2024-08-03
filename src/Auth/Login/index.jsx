@@ -39,7 +39,7 @@ const LoginPage = () => {
             localStorage.setItem('token_binar', token)
             setErrorLogin(null)
             setTimeout(() => {
-                navigate(-1)
+                navigate('/')
             }, 500)
         } catch (error) {
             setErrorLogin(error?.response?.data?.message)
