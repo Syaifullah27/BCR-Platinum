@@ -4,6 +4,7 @@ import Faq from "react-faq-component";
 import React from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import arrowDown from "../../assets/down.png"
 // eslint-disable-next-line react/prop-types
 const FaqSections = ({ isOpen }) => {
 
@@ -52,7 +53,7 @@ const FaqSections = ({ isOpen }) => {
     
     const config = {
         animate: true,
-        arrowIcon: <p className="font-bold text-xl">&#8964;</p>,
+        arrowIcon: <img src={arrowDown} alt="" />,
         tabFocus: true
     };
 

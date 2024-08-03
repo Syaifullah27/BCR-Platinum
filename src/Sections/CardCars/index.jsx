@@ -15,13 +15,13 @@ import Pagination from "../../Components/Pagination/Pagination";
 const CardCars = ({ isOpen, statusCar, isFocused }) => {
     const dispatch = useDispatch();
     const { data, name, price, category, totalPages, currentPage, status } = useSelector((state) => state.product);
-    console.log(data);
+    // console.log(data);
 
     useEffect(() => {
         dispatch(fetchData({ page: currentPage, category, price, statusCar, name }));
     }, [dispatch, currentPage, category, price, statusCar, name]);
 
-    console.log(name);
+    // console.log(name);
 
 
 

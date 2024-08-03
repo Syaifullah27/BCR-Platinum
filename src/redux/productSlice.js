@@ -21,7 +21,7 @@ export const fetchData = createAsyncThunk('data/fetchData', async ({ name, page,
     const url = `https://api-car-rental.binaracademy.org/customer/v2/car?name=${nama}&category=${kategory}&isRented=${status}&minPrice=${harga}&page=${page}&pageSize=9`
     const response = await axios.get(url);
 
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
 }
 );

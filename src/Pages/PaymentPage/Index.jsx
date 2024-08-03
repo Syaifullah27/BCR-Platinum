@@ -10,6 +10,7 @@ import Faq from "react-faq-component";
 import { formatRupiah } from "../../Utils/FormatDatas"
 import axios from "axios"
 import { useParams } from "react-router-dom"
+import arrowDown from "../../assets/down.png"
 // import { unstable_HistoryRouter } from "react-router-dom"
 // import { Link } from "react-router-dom"
 
@@ -112,7 +113,7 @@ const PaymentPage = () => {
 
     const config = {
         animate: true,
-        arrowIcon: <p className="font-bold text-xl" hidden={selectedBank === ""}>&#8964;</p>,
+        arrowIcon: <img src={arrowDown} alt="" />,
         tabFocus: true
     };
 

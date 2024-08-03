@@ -42,8 +42,9 @@ const namaMobil = localStorage.getItem('nameCar')
 const priceMobil = localStorage.getItem('priceCar')
 const awalSewa = localStorage.getItem('startDate')
 const akhirSewa = localStorage.getItem('endDate')
+// eslint-disable-next-line no-unused-vars
 const slip = localStorage.getItem('slip')
-console.log(slip);
+// console.log(slip);
 
 
 

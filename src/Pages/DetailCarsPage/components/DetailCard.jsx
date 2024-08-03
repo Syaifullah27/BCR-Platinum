@@ -29,7 +29,7 @@ const DetailCard = ({isOpen, id}) => {
             localStorage.setItem('categoryCar', (res.data.category))
             localStorage.setItem('priceCar', (res.data.price))
             localStorage.setItem('idCar', (res.data.id))
-            console.log(res.data)
+            // console.log(res.data)
         })
         .catch((err) => {
             console.log(err)
@@ -41,9 +41,11 @@ const DetailCard = ({isOpen, id}) => {
     }, [])
 
 
+    // eslint-disable-next-line no-unused-vars
     const tglAwal = localStorage.getItem('startDate')
+    // eslint-disable-next-line no-unused-vars
     const tglAkhir = localStorage.getItem('endDate')
-    console.log(tglAwal, tglAkhir);
+    // console.log(tglAwal, tglAkhir);
 
 
     const handleToTop = () => {
