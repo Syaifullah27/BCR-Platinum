@@ -34,5 +34,5 @@ jobs:
           git pull origin main
           npm install
           npm run build
-          pm2 reload /root/ecosystem.config.js --only binar-customer
+          pm2 reload /root/ecosytem.config.js --only binar-customer
         debug: true
