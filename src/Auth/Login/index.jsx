@@ -1,15 +1,15 @@
+/* eslint-disable react/prop-types */
 
 import { Icon } from 'react-icons-kit';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
 
 import { useState } from "react";
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 
-const LoginPage = () => {
+const LoginPage = ({  setIsLoginpage }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [token, setToken] = useState(null);
@@ -39,7 +39,7 @@ const LoginPage = () => {
             localStorage.setItem('token_binar', token)
             setErrorLogin(null)
             setTimeout(() => {
-                navigate('/')
+                navigate(-1)
             }, 500)
         } catch (error) {
             setErrorLogin(error?.response?.data?.message)
@@ -138,8 +138,10 @@ const LoginPage = () => {
                     </div>
 
                     
-
-                    <p className='mt-4 text-center font-medium'>Don&#39;t have an account? <Link to="/register" className='text-blue-700 underline'>Sign Up</Link></p>
+                    <div className='flex justify-center items-center gap-2'>
+                        <p className='mt-4 text-center font-medium'>Don&#39;t have an account?</p>
+                        <p onClick={() => setIsLoginpage(false)} className='text-blue-700 underline mt-4'>Sign Up</p>
+                    </div>
 
 
                 </div>

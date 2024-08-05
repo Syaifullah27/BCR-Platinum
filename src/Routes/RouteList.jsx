@@ -4,13 +4,12 @@ import HomePage from "../Pages/Home/Home";
 import NotFound from "../Pages/NotFound/404";
 import ResultCars from "../Pages/ResultCarsPage/ResultCars";
 import RentalsPage from "../Pages/RentalCarsPage/rentalsCars";
-import LoginPage from "../Auth/Login";
-import RegisterPage from "../Auth/Register";
 import TestPage from "../Pages/Test";
 import PaymentPage from "../Pages/PaymentPage/Index";
 import ProtectedPage from "./ProtectedPage";
 import BayarPage from "../Pages/BayarPage";
 import TiketPage from "../Pages/TiketPage/Index";
+import AuthPage from "../Auth";
 
 
 export const RouteList = createBrowserRouter( [
@@ -31,12 +30,8 @@ export const RouteList = createBrowserRouter( [
         element : <DetailCars/>
     },
     {
-        path: "/login",
-        element: <LoginPage />
-    },
-    {
-        path: "/register",
-        element: <RegisterPage />
+        path: "/auth",
+        element: <AuthPage />
     },
     {
         path: "/pilih-metode/:id",

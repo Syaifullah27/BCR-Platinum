@@ -1,15 +1,13 @@
-import { Link } from "react-router-dom"
+/* eslint-disable react/prop-types */
 import { Icon } from 'react-icons-kit';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 
 
-const RegisterPage = () => {
-    const navigate = useNavigate()
+const RegisterPage = ({ setIsLoginpage }) => {
 
     const [userName, setUserName] = useState("")
     const [userEmail, setUserEmail] = useState("")
@@ -48,7 +46,7 @@ const RegisterPage = () => {
             setIsRegister(regis)
             setErrorLogin(null)
             setTimeout(() => {
-                navigate("/login")
+                setIsLoginpage(true)
             }, 1000)
         } catch (error) {
             console.log(error?.response.data.errors[0].message);
@@ -149,7 +147,10 @@ const RegisterPage = () => {
                     </div>
 
 
-                    <p className='mt-4 text-center font-medium'>Have an account? <Link to="/login" className='text-blue-700'>Sign In</Link></p>
+                    <div className='flex justify-center items-center gap-2'>
+                        <p className='mt-4 text-center font-medium'>Have an account?</p>
+                        <p onClick={() => setIsLoginpage(true)} className='text-blue-700 mt-4 underline'>Sign In</p>
+                    </div>
 
 
                 </div>

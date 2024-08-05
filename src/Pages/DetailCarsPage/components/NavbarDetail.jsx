@@ -10,10 +10,10 @@ export function NavbarDetail({ isOpen, toggleMenu, }) {
             const logout = confirm("Are you sure you want to log out?")
             if (logout) {
                 localStorage.removeItem("token_binar")
-                window.location.href = "/login"
+                window.location.href = "/auth"
             }
         } else {
-            window.location.href = "/login"
+            window.location.href = "/auth"
         }
     }
 

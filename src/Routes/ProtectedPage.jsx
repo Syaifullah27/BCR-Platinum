@@ -7,7 +7,7 @@ import { Navigate } from "react-router-dom"
 const ProtectedPage = ({ children }) => {
     const token = localStorage.getItem("token_binar")
 
-    return token ? <>{children || <Outlet />}</> : <Navigate to="/login" />
+    return token ? <>{children || <Outlet />}</> : <Navigate to="/auth" />
 
 }
 
