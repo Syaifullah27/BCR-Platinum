@@ -54,7 +54,7 @@ const ResultCarsTable = ({isOpen,btn,canModify,detailName,detailCapacity,detailP
                                 <div className="table-input">
                                     <label>Nama Mobil</label>
                                     <input
-                                        className={`text-sm ${name ? "hide-arrow" : ""}`}
+                                        className={`text-sm ${name ? "hide-appearance" : ""}  bg-[#ffffff] placeholder:text-[#677380] `}
                                         onBlur={handleInputBlur}
                                         onFocus={handleInputFocus}
                                         value={name}
@@ -66,7 +66,7 @@ const ResultCarsTable = ({isOpen,btn,canModify,detailName,detailCapacity,detailP
                                 <div className="table-input">
                                     <label>Kategori</label>
                                     <select
-                                        className={`text-sm  ${category ? "hide-arrow" : ""}`}
+                                        className={`text-sm  ${category ? "hide-appearance" : ""}  bg-[#ffffff]  placeholder:text-[#677380]`}
                                         defaultValue={""}
                                         value={category}
                                         onChange={handleSetCapacity}
@@ -84,7 +84,7 @@ const ResultCarsTable = ({isOpen,btn,canModify,detailName,detailCapacity,detailP
                                 <div className="table-input">
                                     <label>Harga</label>
                                     <select
-                                        className={`text-sm  ${price ? "hide-arrow" : ""}`}
+                                        className={`text-sm  ${price ? "hide-appearance" : ""}  bg-[#ffffff]  placeholder:text-[#677380]`}
                                         onBlur={handleInputBlur}
                                         onFocus={handleInputFocus}
                                         defaultValue={""}
@@ -102,7 +102,7 @@ const ResultCarsTable = ({isOpen,btn,canModify,detailName,detailCapacity,detailP
                                 <div className="table-input">
                                     <label>Status</label>
                                     <select
-                                        className={`text-sm  ${statusCar ? "hide-arrow" : ""}`}
+                                        className={`text-sm  ${statusCar ? "hide-appearance" : ""}  bg-[#ffffff]  placeholder:text-[#677380]`}
                                         onBlur={handleInputBlur}
                                         onFocus={handleInputFocus}
                                         defaultValue={""}

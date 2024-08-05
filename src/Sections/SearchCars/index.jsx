@@ -38,6 +38,7 @@ const SearchCars = ({ handleInputFocus, handleInputBlur, isOpen }) => {
                     <div className="search-input">
                         <label htmlFor="">Nama Mobil</label>
                         <input
+                            className={`'text-sm placeholder:text-[#677380] bg-[#ffffff]' ${name ? 'hide-arrow' : ''} `}
                             type="text"
                             value={name}
                             onChange={(e) => dispatch(setName(e.target.value))}
@@ -53,7 +54,7 @@ const SearchCars = ({ handleInputFocus, handleInputBlur, isOpen }) => {
                             onChange={(e) => dispatch(setCategory(e.target.value))}
                             onBlur={handleInputBlur}
                             onFocus={handleInputFocus}
-                            className={category ? 'hide-arrow' : ''}>
+                            className={`'p-[10px] text-sm placeholder:text-[#677380] bg-[#ffffff]' ${category ? 'hide-arrow' : ''} `} >
                             <option value="" >Masukan Kapasitas Mobil</option>
                             <option value={"small"}>2 - 4 orang</option>
                             <option value={"medium"}>4 - 6 orang</option>
@@ -69,7 +70,7 @@ const SearchCars = ({ handleInputFocus, handleInputBlur, isOpen }) => {
                             onChange={(e) => dispatch(setPrice(e.target.value))}
                             onBlur={handleInputBlur}
                             onFocus={handleInputFocus}
-                            className={price ? 'hide-arrow' : ''}>
+                            className={`'text-sm placeholder:text-[#677380] bg-[#ffffff]' ${price ? 'hide-arrow' : ''} `}>
                             <option value="" >Masukan Harga Sewa per Hari</option>
                             <option value={400000}>&#60; Rp. 400.000</option>
                             <option value={600000}>Rp. 400.000 - Rp. 600.000</option>
@@ -85,7 +86,7 @@ const SearchCars = ({ handleInputFocus, handleInputBlur, isOpen }) => {
                             onChange={handleStatusCar}
                             onBlur={handleInputBlur}
                             onFocus={handleInputFocus}
-                            className={statusCar ? 'hide-arrow' : ''}>
+                            className={`'text-sm placeholder:text-[#677380] bg-[#ffffff]' ${statusCar ? 'hide-arrow' : ''} `}>
                             <option value="" >Disewa</option>
                             <option value={false}>Tersedia</option>
                             <option value={true}>Tidak Tersedia</option>

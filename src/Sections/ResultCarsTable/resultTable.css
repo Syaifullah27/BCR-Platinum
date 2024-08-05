@@ -76,9 +76,10 @@
     color: white;
 }
 
-.hide-arrow {
+.hide-appearance {
     border: 1px solid #222222;
     outline: none;
+    padding: 12px;
     color: black;
     appearance: none; /* Menghilangkan default arrow */
     -webkit-appearance: none; /* Untuk browser Webkit (Safari, Chrome, dll.) */

@@ -54,12 +54,8 @@ const DetailCard = ({isOpen, id}) => {
 
 
     const handleSubmit = () => {
-        if(detailCars.status === true){
-            return alert("Mobil Tidak Tersedia")
-        } else {
-            navigate(`/pilih-metode/:${detailCars.id}`)
-            handleToTop()
-        }
+        navigate(`/pilih-metode/:${detailCars.id}`)
+        handleToTop()
     }
 
 const handleBack = () => {

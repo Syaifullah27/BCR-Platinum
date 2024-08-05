@@ -79,6 +79,7 @@
     border: 1px solid #222222;
     outline: none;
     color: black;
+    padding: 10px;
     appearance: none; /* Menghilangkan default arrow */
     -webkit-appearance: none; /* Untuk browser Webkit (Safari, Chrome, dll.) */
     -moz-appearance: none; /* Untuk browser Mozilla Firefox */
@@ -93,7 +94,7 @@
 select {
     border: 1px solid #D0D0D0;
     width: 225px;
-    padding: 10px;
+    padding: 13px;
     color: #3c3c3cc7;
     border-radius: 5px;
 }
