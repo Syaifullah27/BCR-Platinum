@@ -1,0 +1,38 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to server
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Deploy to VPS
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: root
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          # Update PATH to include NVM binaries
+          export PATH=$PATH:/root/.nvm/v20.5.1/bin
+
+          # Debugging information
+          echo $PATH
+          which npm
+          which pm2
+
+          # Commands
+          cd /root/repo/BCR-Platinum
+          git pull origin main
+          npm install
+          npm run build
+          pm2 reload /root/ecosystem.config.js --only binar-customer
+        debug: true
