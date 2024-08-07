@@ -44,7 +44,7 @@ export const dataTestimoni = [
     {
         id: 3,
         img: "./images/gozali.jpg",
-        title: "Ghozali 39, Tangerang",
+        title: "Mewing 1000 aura 39, Tangerang",
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
         rate: "./images/Rate.png",
     },
