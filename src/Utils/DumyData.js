@@ -58,7 +58,7 @@ export const dataTestimoni = [
     {
         id: 5,
         img: "./images/jhony_.jpg",
-        title: "Jimmy Sinis 24, Palembang",
+        title: "ucok hadi 24, Palembang",
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod",
         rate: "./images/Rate.png",
     },
