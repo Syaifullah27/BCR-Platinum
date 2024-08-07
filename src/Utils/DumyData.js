@@ -74,11 +74,11 @@ export const dataTestimoni = [
 export const dataServices = [
     {
         id: 1,
-        desc: "Sewa Mobil Dengan Supir di Bali 12 Jam"
+        desc: "Sewa Mobil Dengan Supir di (Lokasimu) 12 Jam"
     },
     {
         id: 2,
-        desc: "Sewa Mobil Lepas Kunci di Bali 24 Jam"
+        desc: "Sewa Mobil Lepas Kunci di (Lokasimu) 24 Jam"
     },
     {
         id: 3,
